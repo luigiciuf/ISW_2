@@ -64,7 +64,7 @@ public class Version {
      * @param vs
      * @return
      */
-    public boolean booleanfindNumRel(List<Version> vs){
+    public boolean findNumRel(List<Version> vs){
         boolean flag = false;
         for ( int i=0; i< vs.size(); i++){
             if(vs.get(i).getId()== this.id)
