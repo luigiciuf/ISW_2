@@ -19,11 +19,24 @@ public class RetrieveTicketID {
 
     int discarded;
 
+    /**
+     * Costruttore per inizializzare la classe con il nome del progetto.
+     * @param projName Nome del progetto JIRA da cui estrarre i ticket.
+     */
     public RetrieveTicketID(String projName){
         this.projName=projName;;
         this.tickets=new ArrayList<Ticket>();
         discarded=0;
     }
+
+    /**
+     * Ottiene la lista di ticket dopo aver recuperato e filtrato i dati da JIRA.
+     * @param allVersions Lista di tutte le versioni del progetto.
+     * @return La lista di ticket validi dopo il recupero e il controllo.
+     * @throws IOException Se si verifica un errore di input/output.
+     * @throws JSONException Se si verifica un errore durante l'elaborazione del JSON.
+     * @throws ParseException Se si verifica un errore durante il parsing delle date.
+     */
     public  List<Ticket> getTickets(List<Version> allVersions) throws IOException, JSONException, ParseException {
         getJiraInfo(allVersions);
         checkReliableTickets(tickets);
@@ -32,16 +45,25 @@ public class RetrieveTicketID {
         return tickets;
     }
 
+    /**
+     * Recupera le informazioni sui ticket da JIRA e le associa alle versioni.
+     * @param allVersions La lista di tutte le versioni del progetto.
+     * @throws JSONException Se c'è un errore di parsing JSON.
+     * @throws IOException Se c'è un errore di input/output.
+     * @throws ParseException Se c'è un errore durante il parsing delle date.
+     */
     private void getJiraInfo(List<Version> allVersions) throws JSONException,IOException,ParseException {
         Integer j = 0;
         Integer i = 0;
         int total = 1;
         do {
             j = 1 + 1000;
+            // Costruisce la query JIRA per recuperare i ticket
             String url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=%22"
                     + projName + "%22AND%22issueType%22=%22Bug%22AND(%22status%22=%22closed%22OR"
                     + "%22status%22=%22resolved%22)AND%22resolution%22=%22fixed%22&fields=key,resolutiondate,versions,created&startAt="
                     + i.toString() + "&maxResults=" + j.toString();
+            // Recupera e legge i dati JSON dalla query
             JSONObject json = Utilities.readJsonFromUrl(url);
             JSONArray issues = json.getJSONArray("issues");
             total = json.getInt("total");
@@ -98,7 +120,10 @@ public class RetrieveTicketID {
             discarded = +1;
         }
     }
-
+    /**
+     * Controlla e rimuove i ticket non affidabili.
+     * @param tickets La lista di ticket da verificare.
+     */
     private void checkReliableTickets(List<Ticket> tickets){
         int i =0;
         for ( i=0; i< tickets.size(); i++){
@@ -115,8 +140,13 @@ public class RetrieveTicketID {
         }
     }
 
-    private void proportion(List<Version> allVersion, List<Ticket> tickets){
+    /**
+     * Applica proportion per correggere i ticket senza informazioni complete.
+     * @param allVersion La lista di tutte le versioni.
+     * @param tickets La lista di ticket.
+     */
 
+    private void proportion(List<Version> allVersion, List<Ticket> tickets){
         float avSum=0;
         float ovSum=0;
         float fvSum=0;
