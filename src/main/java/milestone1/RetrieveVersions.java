@@ -44,7 +44,12 @@ public class RetrieveVersions {
     private static Map<LocalDateTime, String> releaseID; // Mappa di ID delle release
     private static List<LocalDateTime> releases; // Lista di date delle release
 
-    // Metodo per recuperare informazioni sulle release da JIRA
+    /**
+     * Recupera le informazioni sulle release di un progetto JIRA.
+     * @param projName Il nome del progetto da cui recuperare le release.
+     * @throws IOException Se si verificano problemi di I/O.
+     * @throws JSONException Se si verificano problemi di parsing JSON.
+     */
     public static void GetRealeaseInfo(String projName) throws IOException, JSONException {
         // Inizializza la lista delle release
         releases = new ArrayList<>();
@@ -108,8 +113,12 @@ public class RetrieveVersions {
         }
     }
 
-    // Metodo privato per aggiungere una release alla lista
-    private static void addRelease(String strDate, String name, String id) {
+    /**
+     * Aggiunge una release alla lista delle release e aggiorna le mappe.
+     * @param strDate La data di rilascio della versione.
+     * @param name Il nome della versione.
+     * @param id L'ID della versione.
+     */    private static void addRelease(String strDate, String name, String id) {
         LocalDate date = LocalDate.parse(strDate); // Converte la data da stringa a LocalDate
         LocalDateTime dateTime = date.atStartOfDay(); // Converte a LocalDateTime
 
@@ -122,7 +131,13 @@ public class RetrieveVersions {
         releaseID.put(dateTime, id);
     }
 
-    // Metodo per leggere le versioni da un file CSV
+    /**
+     * Legge le versioni da un file CSV e restituisce una lista di Version.
+     * @param pathVersion Il percorso del file CSV da leggere.
+     * @return Una lista di oggetti Version.
+     * @throws IOException Se si verificano problemi di I/O.
+     * @throws JSONException Se si verificano problemi di parsing JSON.
+     */
     public static List<Version> GetVersions(String pathVersion) throws IOException, JSONException {
         // Crea un pattern per dividere le righe
         Pattern pattern = Pattern.compile(",");
@@ -155,7 +170,12 @@ public class RetrieveVersions {
         return versions; // Restituisce la lista delle versioni
     }
 
-    // Metodo per trovare una versione da una data
+    /**
+     * Trova la versione appropriata data una certa data.
+     * @param date La data per cui cercare la versione.
+     * @param allVersions La lista di tutte le versioni.
+     * @return La versione che corrisponde alla data, o null se non trovata.
+     */
     public static Version FindVersion(Date date, List<Version> allVersions) {
         // Cerca la prima versione che non è precedente alla data
         for (Version v : allVersions) {
