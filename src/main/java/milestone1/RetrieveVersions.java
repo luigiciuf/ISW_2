@@ -85,6 +85,7 @@ public class RetrieveVersions {
 
         // Se ci sono meno di 6 release, esci dalla funzione
         if (releases.size() < 6) {
+            LOGGER.warning("Il progetto ha meno di 6 release. Impossibile procedere");
             return;
         }
 
@@ -102,7 +103,7 @@ public class RetrieveVersions {
                 fileWriter.append("\n");
             }
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Error in csv writer", e); // Gestione delle eccezioni
+            LOGGER.log(Level.SEVERE, "Errore durante la scrittura del file CSV", e); // Gestione delle eccezioni
             e.printStackTrace(); // Stampa stack trace
         }
     }
