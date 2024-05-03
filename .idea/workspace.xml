@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="added comments RetrieveVersions" />
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="added comments RetrieveTicketID">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/milestone1/GetBuggyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone1/GetBuggyClass.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +71,7 @@
       <workItem from="1714548541198" duration="9346000" />
       <workItem from="1714631932689" duration="1976000" />
       <workItem from="1714717913698" duration="590000" />
-      <workItem from="1714741603404" duration="2249000" />
+      <workItem from="1714741603404" duration="3272000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -142,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714743643741</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added comments RetrieveTicketID">
+      <option name="closed" value="true" />
+      <created>1714744066704</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714744066704</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +180,7 @@
     <MESSAGE value="update RetieveCommits" />
     <MESSAGE value="update RetieveCommits and RetrieveVersions" />
     <MESSAGE value="added comments RetrieveVersions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments RetrieveVersions" />
+    <MESSAGE value="added comments RetrieveTicketID" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments RetrieveTicketID" />
   </component>
 </project>
