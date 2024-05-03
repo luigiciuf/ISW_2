@@ -7,7 +7,7 @@ import model.Ticket;
 import java.util.List;
 import java.util.Map;
 
-public class GetBuggyClass {
+public class GetBuggyClass{
     /**
      * Imposta il flag di bugginess per le istanze che corrispondono ai commit buggy.
      * @param instances Una lista di istanze da controllare per bugginess.
