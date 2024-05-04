@@ -1,5 +1,6 @@
 package milestone1;
 
+import Utils.JsonUtils;
 import Utils.Utilities;
 import model.Ticket;
 import model.Version;
@@ -64,7 +65,7 @@ public class RetrieveTicketID {
                     + "%22status%22=%22resolved%22)AND%22resolution%22=%22fixed%22&fields=key,resolutiondate,versions,created&startAt="
                     + i.toString() + "&maxResults=" + j.toString();
             // Recupera e legge i dati JSON dalla query
-            JSONObject json = Utilities.readJsonFromUrl(url);
+            JSONObject json = JsonUtils.readJsonFromUrl(url);
             JSONArray issues = json.getJSONArray("issues");
             total = json.getInt("total");
             for (; i < total && i < j; i++) {

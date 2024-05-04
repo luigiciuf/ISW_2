@@ -26,37 +26,12 @@ public class Utilities {
         super();
     }
 
-    public static String readAll(Reader rd) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        int cp;
-        while ((cp = rd.read()) != -1) {
-            sb.append((char) cp);
-        }
-        return sb.toString();
-    }
-
-    public static JSONArray readJsonArrayFromUrl(String url) throws IOException, JSONException {
-        InputStream is = new URL(url).openStream();
-        try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-            String jsonText = readAll(rd);
-            return new JSONArray(jsonText);
-        } finally {
-            is.close();
-        }
-    }
-
-    public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
-        InputStream is = new URL(url).openStream();
-        try {
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-            String jsonText = readAll(rd);
-            return new JSONObject(jsonText);
-        } finally {
-            is.close();
-        }
-    }
-
+    /**
+     * Verifica se una stringa contiene un'altra stringa con un esatto matching di parola.
+     * @param source La stringa sorgente in cui cercare.
+     * @param subItem La stringa da cercare.
+     * @return true se la stringa `subItem` è trovata nella `source`, altrimenti false.
+     */
     public static boolean IsContain(String source, String subItem){
         // Analizing exact matching for strings
         String pattern = "\\b"+subItem+"\\b";
@@ -64,12 +39,22 @@ public class Utilities {
         Matcher m=p.matcher(source);
         return m.find();
     }
-
+    /**
+     * Converte un numero intero in una data nel formato "yyyyMMdd".
+     * @param d L'intero da convertire in data.
+     * @return La data corrispondente all'intero dato.
+     * @throws ParseException Se il formato della data non è valido.
+     */
     public static Date IntToDate(int d) throws ParseException {
         SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
         return originalFormat.parse(String.valueOf(d));
     }
 
+    /**
+     * Clona una lista di istanze (Instance) e restituisce una nuova lista.
+     * @param list La lista da clonare.
+     * @return Una nuova lista con copie degli elementi originali.
+     */
     public static List<Instance> clone(List<Instance> list){
         List<Instance> clonedList = new ArrayList<>();
         for(Instance c : list) {

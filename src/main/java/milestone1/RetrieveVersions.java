@@ -20,6 +20,7 @@ import java.util.HashMap; // Import per mappe dinamiche
 import java.util.regex.Pattern; // Import per pattern regex
 import java.util.stream.Collectors; // Import per stream e operazioni su collezioni
 
+import Utils.JsonUtils;
 import Utils.Utilities;
 import model.Version;
 import org.json.JSONArray; // Libreria per JSON
@@ -58,7 +59,7 @@ public class RetrieveVersions {
         String url = "https://issues.apache.org/jira/rest/api/2/project/" + projName;
 
         // Legge JSON dall'URL e ottiene array di versioni
-        JSONObject json = Utilities.readJsonFromUrl(url); // Lettura del JSON
+        JSONObject json = JsonUtils.readJsonFromUrl(url); // Lettura del JSON
         JSONArray versions = json.getJSONArray("versions"); // Array di versioni
 
         // Inizializza le mappe per nomi e ID delle release
