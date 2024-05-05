@@ -74,6 +74,14 @@ public class Instance {
         LocAdded += added; // Aggiorna il totale delle linee di codice aggiunte
     }
 
+    public void updateInstanceMeta(boolean fixCommit) {
+        NR++;
+
+        if(fixCommit) NFix++;
+
+        this.avgChurn = churn / NR;
+    }
+
 
     public boolean insideAV(Version iv, Version fv) {
         boolean flag = false; // Flag per indicare se l'istanza rientra nell'intervallo
