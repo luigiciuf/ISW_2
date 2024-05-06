@@ -1,7 +1,6 @@
 package milestone1;
 
 import Utils.JsonUtils;
-import Utils.Utilities;
 import model.Ticket;
 import model.Version;
 import org.json.JSONArray;
@@ -26,7 +25,7 @@ public class RetrieveTicketID {
      */
     public RetrieveTicketID(String projName){
         this.projName=projName;;
-        this.tickets=new ArrayList<Ticket>();
+        this.tickets=new ArrayList<>();
         discarded=0;
     }
 
@@ -57,9 +56,7 @@ public class RetrieveTicketID {
         Integer j = 0;
         Integer i = 0;
         int total = 1;
-        //Get JSON API for closed bugs w/ AV in the project
         do {
-            //Only gets a max of 1000 at a time, so must do this multiple times if bugs >1000
             j = i + 1000;
             String url = "https://issues.apache.org/jira/rest/api/2/search?jql=project=%22"
                     + projName + "%22AND%22issueType%22=%22Bug%22AND(%22status%22=%22closed%22OR"
@@ -69,20 +66,14 @@ public class RetrieveTicketID {
             JSONArray issues = json.getJSONArray("issues");
             total = json.getInt("total");
             for (; i < total && i < j; i++) {
-                //Iterate through each bug
-                // Get Json file
                 JSONObject issue = issues.getJSONObject(i%1000);
                 JSONObject field = issue.getJSONObject("fields");
-
-                // Get fields
                 String key = issue.getString("key");
                 long id = issue.getLong("id");
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
                 Date resolved = sdf.parse(field.getString("resolutiondate"));
                 Date created = sdf.parse(field.getString("created"));
                 JSONArray versions = field.getJSONArray("versions");
-
-                // Set affected version
                 Version av = null;
                 if(!versions.isNull(0)) {
                     JSONObject v = versions.getJSONObject(0);
@@ -99,16 +90,10 @@ public class RetrieveTicketID {
                 if(ov == null || fv == null) {
                     continue;
                 }
-
-                // Set opening version
                 setOv(ov);
                 ov.findNumRel(allVersions);
-
-                // Set fixed version
                 setFv(fv);
                 fv.findNumRel(allVersions);
-
-                // Add ticket to list
                 tickets.add(new Ticket(id, key, created, resolved, av, ov, fv));
             }
         } while (i < total);
@@ -117,13 +102,12 @@ public class RetrieveTicketID {
 
     private void setOv(Version ov) {
         if (ov == null) {
-            discarded = +1;
-
+            discarded +=1;
         }
     }
     private void setFv(Version fv) {
         if (fv == null) {
-            discarded = +1;
+            discarded += 1;
         }
     }
     /**

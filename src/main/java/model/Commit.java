@@ -22,9 +22,9 @@ public class Commit {
         this.author = author;
         this.version = version;
         this.date = date;
-        this.classes = new ArrayList<String>();
-        this.classesTouched = new ArrayList<String>();
-        this.buggyTickets= new ArrayList<Ticket>();
+        this.classes = new ArrayList<>();
+        this.classesTouched = new ArrayList<>();
+        this.buggyTickets= new ArrayList<>();
     }
 
     public Version getVersion() {

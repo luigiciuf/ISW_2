@@ -12,7 +12,6 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Parameter;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
@@ -53,8 +52,9 @@ public class Controller {
                 // Otherwise checkout the project
             } else {
                 git = Git.open(dir);
-                git.pull();
-                git.checkout();
+                git.pull().call();
+                //git.checkout();
+
 //				LOGGER.log(Level.INFO , String.format("checkout completed %s/%s", path, projName));
             }
         } catch (GitAPIException | IOException e) {
@@ -69,7 +69,7 @@ public class Controller {
         List<Instance> instances = null;
         Map<String, List<Integer>> mapInst = new HashMap<>();
 
-        String projName = Parameters.PROJECT1;
+        String projName = Parameters.PROJECT2;
 
         Controller controller = new Controller(projName);
         controller.setProject();
@@ -79,7 +79,7 @@ public class Controller {
         LOGGER.info(output);
 
         // CONSTRUCT DB VERSIONS
-//		RetrieveVersions.GetRealeaseInfo(projName);
+		RetrieveVersions.GetRealeaseInfo(projName);
 
         // GET VERSIONS
         versions = RetrieveVersions.GetVersions(projName + "VersionInfo.csv");
@@ -128,17 +128,18 @@ public class Controller {
         GBC.setBugginess(instances, commits, mapInst);
     }
 
-    public void fillDataset(List<Instance> instances) throws IOException {
+    public void fillDataset(List<Instance> instances){
         try (FileWriter fileWriter = new FileWriter(projName + Parameters.DATASET)) {
             fileWriter.append("Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,maxLocTouched,Bugginess");
             fileWriter.append("\n");
 
             for (Instance instance : instances) {
                 int bugginess = instance.isBugginess() ? 1 : 0;
-                String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%n", instance.getVersion().getName(),
-                        instance.getName(), Integer.toString(instance.getSize()), Integer.toString(instance.getLocTouched()),
-                        Integer.toString(instance.getMaxLocAdded()), Integer.toString(instance.getChurn()), Integer.toString(instance.getMaxChurn()),
-                        Integer.toString(instance.getAvgChurn()), Integer.toString(instance.getNR()), Integer.toString(instance.getNFix()));
+                String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%n", instance.getVersion().getName(),
+                        instance.getName(), instance.getSize(), instance.getLocTouched(),
+                        instance.getMaxLocAdded(), instance.getChurn(), instance.getMaxChurn(),
+                        instance.getAvgChurn(), instance.getNR(), instance.getNFix(), instance.getAge(),instance.getMaxLocTouched(), bugginess);
+
                 fileWriter.append(line);
             }
         } catch (Exception e) {

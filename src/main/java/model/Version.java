@@ -42,7 +42,7 @@ public class Version {
      */
     public boolean isBefore(Version v){
         boolean flag = false;
-        if ( this.endDate.before(v.endDate))flag= true;
+        if (this.endDate.before(v.endDate))flag= true;
     return flag;
     }
 
@@ -70,7 +70,6 @@ public class Version {
             if(vs.get(i).getId()== this.id)
             {
                 this.numRel= i+1;
-
             }
         }
         return flag;

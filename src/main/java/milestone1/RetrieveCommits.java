@@ -19,7 +19,7 @@ public class RetrieveCommits {
     private Git git;
     private ArrayList<Commit> commits;
     public RetrieveCommits(){
-        this.commits=new ArrayList<Commit>();
+        this.commits=new ArrayList<>();
     }
 
     /**
@@ -32,31 +32,33 @@ public class RetrieveCommits {
      */
 
     public List<Commit> getCommits(Git git, List<Ticket> tickets, List<Version> versions) throws IOException, JSONException, GitAPIException {
-    this.git=git;
-    Iterable<RevCommit> log= git.log().call();
-    for(Iterator<RevCommit> iterator= log.iterator(); iterator.hasNext();){
-        RevCommit rev= iterator.next();
-        // prendiamo l'autore
-        PersonIdent pi= rev.getAuthorIdent();
-        String author= pi.getName();
-        Date creationTime= pi.getWhen();
-        //prendiamo la versione
-        Version version= RetrieveVersions.FindVersion(creationTime, versions);
-        // escludo i commit che non appartengono a nessuna versione, e continuo
-        if(version == null) continue;
+        this.git=git;
+        Iterable<RevCommit> log= git.log().call();
+        for(Iterator<RevCommit> iterator= log.iterator(); iterator.hasNext();){
+            RevCommit rev= iterator.next();
+            PersonIdent pi= rev.getAuthorIdent();
+            String author= pi.getName();
+            Date creationTime= pi.getWhen();
+            //prendiamo la versione
+            Version version= RetrieveVersions.FindVersion(creationTime, versions);
+            // escludo i commit che non appartengono a nessuna versione, e continuo
+            if(version == null) continue;
 
-        Commit commit= new Commit(rev,author, version, creationTime);
-        List<String> classes = getFilesCommit(rev);
-        List<Ticket> buggyTickets = getBuggyTickets(rev,tickets);
+            Commit commit= new Commit(rev,author, version, creationTime);
+            List<String> classes = getFilesCommit(rev);
+            List<Ticket> buggyTickets = getBuggyTickets(rev,tickets);
 
-        commit.setClasses(classes);
-        commit.setBuggyTickets(buggyTickets);
-        commits.add(commit);
+            commit.setClasses(classes);
+            commit.setBuggyTickets(buggyTickets);
+            commits.add(commit);
 
+        }
+        commits.sort(Comparator.comparing(Commit::getDate));
+        return commits;
     }
-    commits.sort(Comparator.comparing(Commit::getDate));
-    return commits;
-    }
+
+
+
 
     /**
      * Restituisce i ticket che contengono il riferimento al commit nel loro messaggio.

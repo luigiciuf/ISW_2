@@ -37,7 +37,7 @@ public class Instance {
         this.bugginess = c.isBugginess();
     }
 
-    private int getAge() { return age;
+    public int getAge() { return age;
     }
 
     public Instance(String name, Version version,Date dateCreation){

@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="added comments">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Utils/JsonUtils.java" afterDir="false" />
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/milestone1/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone1/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/milestone1/RetrieveCommits.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone1/RetrieveCommits.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/milestone1/RetrieveTicketID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone1/RetrieveTicketID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/milestone1/RetrieveVersions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone1/RetrieveVersions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Commit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Commit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Instance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Instance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Version.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +29,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -37,25 +43,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Controller.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/luigi/IdeaProjects/ISW_2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\luigi\IdeaProjects\ISW_2" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="milestone1.Controller" />
+      <module name="ISW_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="milestone1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Controller" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,7 +108,9 @@
       <workItem from="1714631932689" duration="1976000" />
       <workItem from="1714717913698" duration="590000" />
       <workItem from="1714741603404" duration="4057000" />
-      <workItem from="1714749205254" duration="1031000" />
+      <workItem from="1714749205254" duration="12431000" />
+      <workItem from="1714891735511" duration="8298000" />
+      <workItem from="1714982994395" duration="4214000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -173,7 +208,63 @@
       <option name="project" value="LOCAL" />
       <updated>1714748843156</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added JsonUtils">
+      <option name="closed" value="true" />
+      <created>1714803325204</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1714803325204</updated>
+    </task>
+    <task id="LOCAL-00014" summary="getter and setter Instance added">
+      <option name="closed" value="true" />
+      <created>1714815918908</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1714815918908</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added updateInstance">
+      <option name="closed" value="true" />
+      <created>1714889837707</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1714889837707</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1714889892290</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1714889892290</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added Parameters">
+      <option name="closed" value="true" />
+      <created>1714979415037</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1714979415037</updated>
+    </task>
+    <task id="LOCAL-00018" summary="added Controller.java">
+      <option name="closed" value="true" />
+      <created>1714979449927</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1714979449927</updated>
+    </task>
+    <task id="LOCAL-00019" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1714979471521</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1714979471521</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,7 +292,42 @@
     <MESSAGE value="update RetieveCommits and RetrieveVersions" />
     <MESSAGE value="added comments RetrieveVersions" />
     <MESSAGE value="added comments RetrieveTicketID" />
+    <MESSAGE value="added JsonUtils" />
+    <MESSAGE value="getter and setter Instance added" />
+    <MESSAGE value="added updateInstance" />
     <MESSAGE value="added comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments" />
+    <MESSAGE value="added Parameters" />
+    <MESSAGE value="added Controller.java" />
+    <MESSAGE value="some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.eclipse.jgit.api.errors.NoHeadException" package="org.eclipse.jgit.api.errors" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/milestone1/Controller.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/milestone1/RetrieveCommits.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/milestone1/Controller.java</url>
+          <line>39</line>
+          <properties class="milestone1.Controller" method="setProject">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

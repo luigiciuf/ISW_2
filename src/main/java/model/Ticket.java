@@ -16,7 +16,7 @@ public class Ticket {
 
 
 
-    public Ticket(long id, String key, Date created, Date resolDate, Version av, Version ob, Version fv) {
+    public Ticket(long id, String key, Date created, Date resolDate, Version av, Version ov, Version fv) {
         this.id = id;
         this.key = key;
         this.created = created;
@@ -40,7 +40,6 @@ public class Ticket {
         if(pos<1) pos=1;
         av = allVersions.get(pos-1);
         av.setNumRel(pos);
-
 
     }
 
