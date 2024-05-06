@@ -15,7 +15,7 @@ public class Instance {
     private int churn;
     private int maxChurn;
     private int avgChurn;
-    private int LocAdded;
+    private int age;
     private int maxLocAdded;
     private boolean bugginess;
 
@@ -26,6 +26,7 @@ public class Instance {
         this.dateCreation=c.getDateCreation();
         this.size = c.getSize();
         this.locTouched = c.getLocTouched();
+        this.age = c.getAge();
         NR=c.getNR();
         NFix=c.getNFix();
         this.maxLocTouched=c.getMaxLocTouched();
@@ -34,6 +35,9 @@ public class Instance {
         this.avgChurn = c.getAvgChurn();
         this.maxLocAdded = c.getMaxLocAdded();
         this.bugginess = c.isBugginess();
+    }
+
+    private int getAge() { return age;
     }
 
     public Instance(String name, Version version,Date dateCreation){
@@ -50,6 +54,7 @@ public class Instance {
         this.avgChurn=0;
         this.maxLocAdded = 0;
         this.bugginess=false;
+        this.age=0;
     }
 
     /**
@@ -58,20 +63,16 @@ public class Instance {
      * @param deleted Linee di codice rimosse.
      */
     public void updateInstanceLoc(int added, int deleted) {
-        if (added > maxLocAdded) { // Se il numero di righe aggiunte è maggiore del massimo attuale
-            maxLocAdded = added; // Aggiorna il massimo delle righe aggiunte
-        }
+        if (added > maxLocAdded)
+            maxLocAdded = added;
 
-        locTouched += added + deleted; // Aggiorna le linee di codice toccate
+        locTouched += added + deleted;
 
-        churn += added - deleted; // Calcola il churn e lo aggiorna
-        if ((added - deleted) > maxChurn) { // Se il churn attuale è maggiore del massimo attuale
-            maxChurn = added - deleted; // Aggiorna il massimo churn
-        }
-
-        size += added - deleted; // Aggiorna la dimensione della classe
-
-        LocAdded += added; // Aggiorna il totale delle linee di codice aggiunte
+        int ch = added - deleted;
+        this.churn += ch;
+        if (ch > maxChurn)
+            maxChurn = ch;
+        size += ch;
     }
 
     public void updateInstanceMeta(boolean fixCommit) {
@@ -91,13 +92,14 @@ public class Instance {
         return flag; // Restituisce se l'istanza è nell'intervallo
     }
 
+    public void increaseAge() {
+        this.age++;
+    }
+
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Version getVersion() {
         return version;
@@ -111,89 +113,52 @@ public class Instance {
         return dateCreation;
     }
 
-    public void setDateCreation(Date dateCreation) {
-        this.dateCreation = dateCreation;
-    }
 
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
 
     public int getLocTouched() {
         return locTouched;
     }
 
-    public void setLocTouched(int locTouched) {
-        this.locTouched = locTouched;
-    }
 
     public int getNR() {
         return NR;
     }
 
-    public void setNR(int NR) {
-        this.NR = NR;
-    }
 
     public int getNFix() {
         return NFix;
     }
 
-    public void setNFix(int NFix) {
-        this.NFix = NFix;
-    }
 
     public int getMaxLocTouched() {
         return maxLocTouched;
     }
 
-    public void setMaxLocTouched(int maxLocTouched) {
-        this.maxLocTouched = maxLocTouched;
-    }
 
     public int getChurn() {
         return churn;
     }
 
-    public void setChurn(int churn) {
-        this.churn = churn;
-    }
 
     public int getMaxChurn() {
         return maxChurn;
     }
 
-    public void setMaxChurn(int maxChurn) {
-        this.maxChurn = maxChurn;
-    }
 
     public int getAvgChurn() {
         return avgChurn;
     }
 
-    public void setAvgChurn(int avgChurn) {
-        this.avgChurn = avgChurn;
-    }
 
-    public int getLocAdded() {
-        return LocAdded;
-    }
-
-    public void setLocAdded(int locAdded) {
-        LocAdded = locAdded;
-    }
 
     public int getMaxLocAdded() {
         return maxLocAdded;
     }
 
-    public void setMaxLocAdded(int maxLocAdded) {
-        this.maxLocAdded = maxLocAdded;
-    }
 
     public boolean isBugginess() {
         return bugginess;

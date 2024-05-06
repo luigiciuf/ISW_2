@@ -27,8 +27,8 @@ public class GetMetrics {
     private Git git;
     private ArrayList<Instance> instances;
 
-    private GetMetrics(){
-        this.instances=new ArrayList<>();
+    public GetMetrics(){
+        this.instances=new ArrayList<Instance>();
 
     }
 
@@ -42,30 +42,28 @@ public class GetMetrics {
      * @throws IOException Se si verifica un errore di I/O.
      */
     public List<Instance> getInstances(Git git, List<Commit> commits, List<Version> versions, Map<String, List<Integer>> mapInst) throws IOException{
-        this.git=git;
-        ArrayList<Instance> temp= new ArrayList<>();
-        Map<String,Integer> mapTemp= new HashMap<>();
-        Instance instance= null;
-        RevCommit prevCommit= null;
+        this.git = git;
+        ArrayList<Instance> temp = new ArrayList<>();
+        Map<String, Integer> mapTemp = new HashMap<>();
+        Instance inst = null;
+        RevCommit prevCommit = null;
         Version version = versions.get(0);
-
-        for (Commit commit: commits){
-            //recuperiamo autore del commit
+        for(Commit commit : commits) {
             String author = commit.getAuthor();
-            //verifichiamo che il commit sia un commit di fix
-            boolean fixCommit= !commit.getBuggyTickets().isEmpty();
-            // Se la versione corrente cambia, aggiorna le istanze e reimposta la versione
-            if(!version.getName().equals(commit.getVersion().getName())){
-                updateInstances(mapInst,temp,mapTemp);
-                version=commit.getVersion();
-                for(Instance t : temp){
+            boolean fixCommit = false;
+            if(!commit.getBuggyTickets().isEmpty()) fixCommit = true;
+            if(!version.getName().equals(commit.getVersion().getName())) {
+                updateInstances(mapInst, temp, mapTemp);
+                version = commit.getVersion();
+                for (int i = 0; i < temp.size(); i++) {
+                    Instance t = temp.get(i);
                     t.setVersion(version);
+                    t.increaseAge();
                 }
             }
             manageFiles(commit,prevCommit,temp,mapTemp,version,author,fixCommit);
-            int nCommTogheter = commit.getClassesTouched().size();
             for (String file: commit.getClassesTouched()){
-                instance= temp.get(mapTemp.get(file));
+                inst= temp.get(mapTemp.get(file));
             }
             prevCommit=commit.getRev();
         }
@@ -119,7 +117,7 @@ public class GetMetrics {
         df.setRepository(git.getRepository());
         if (oldCommit != null) {
             lstDe = df.scan(oldCommit.getTree(), newCommit.getTree());
-        } else {           // (?) corretto ?
+        } else {
             ObjectReader reader = git.getRepository().newObjectReader();
             AbstractTreeIterator newTree = new CanonicalTreeParser(null, reader, newCommit.getTree());
             AbstractTreeIterator oldTree = new EmptyTreeIterator();

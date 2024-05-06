@@ -43,28 +43,13 @@ public class Ticket {
 
 
     }
-    public long getId() {
-        return id;
+
+    public Version getOv() {
+        return ov;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
+    public void setOv(Version ov) {
+        this.ov = ov;
     }
 
     public Date getResolDate() {
@@ -75,29 +60,26 @@ public class Ticket {
         this.resolDate = resolDate;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
     public Version getAv() {
         return av;
     }
 
-    public void setAv(Version av) {
-        this.av = av;
-    }
-
-    public Version getOv() {
-        return ov;
-    }
-
-    public void setOv(Version ov) {
-        this.ov = ov;
+    public Date getCreated() {
+        return created;
     }
 
     public Version getFv() {
         return fv;
     }
 
-    public void setFv(Version fv) {
-        this.fv = fv;
-    }
 
 
 }

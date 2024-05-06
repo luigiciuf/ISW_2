@@ -30,7 +30,7 @@ public class Version {
 
     public boolean isBefore(Date v){
         boolean flag= false;
-        if(this.endDate.before(v)|| this.endDate.equals(v)) flag= true;
+        if(this.endDate.before(v)|| this.endDate.equals(v))flag= true;
         return flag;
     }
 
@@ -42,7 +42,7 @@ public class Version {
      */
     public boolean isBefore(Version v){
         boolean flag = false;
-        if ( this.endDate.before(v.endDate)) flag= true;
+        if ( this.endDate.before(v.endDate))flag= true;
     return flag;
     }
 
@@ -88,25 +88,14 @@ public class Version {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
 
     public int getNumRel() {
         return numRel;

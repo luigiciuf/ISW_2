@@ -5,6 +5,7 @@ import model.Ticket;
 import model.Version;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.ObjectId;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.treewalk.TreeWalk;
@@ -45,8 +46,11 @@ public class RetrieveCommits {
         if(version == null) continue;
 
         Commit commit= new Commit(rev,author, version, creationTime);
-        commit.setClasses(getFilesInCommit(git,rev));
-        commit.setBuggyTickets(getBuggyTickets(rev,tickets));
+        List<String> classes = getFilesCommit(rev);
+        List<Ticket> buggyTickets = getBuggyTickets(rev,tickets);
+
+        commit.setClasses(classes);
+        commit.setBuggyTickets(buggyTickets);
         commits.add(commit);
 
     }
@@ -60,9 +64,13 @@ public class RetrieveCommits {
      * @param tickets La lista di ticket da cui cercare
      * @return Una lista di ticket correlati al commit
      */
-    private List<Ticket> getBuggyTickets(RevCommit commit,List<Ticket> tickets){
-        String message= commit.getFullMessage();
-        return tickets.stream().filter(ticket-> message.contains(ticket.getKey())).collect(Collectors.toList());
+    private List<Ticket> getBuggyTickets(RevCommit commit, List<Ticket> tickets){
+        List<Ticket> buggyTickets = new ArrayList<>();
+        String msg = commit.getFullMessage();
+        for(Ticket ticket : tickets) {
+            if(msg.contains(ticket.getKey())) buggyTickets.add(ticket);
+        }
+        return buggyTickets;
     }
 
     /**
@@ -72,20 +80,22 @@ public class RetrieveCommits {
      * @throws IOException Se c'è un problema con l'accesso al repository Git
      */
 
-    private List<String> getFilesInCommit(Git git, RevCommit commit) throws IOException {
+    private List<String> getFilesCommit(RevCommit commit) throws  IOException {
         List<String> affectedFiles = new ArrayList<>();
+        ObjectId treeId = commit.getTree().getId();
         TreeWalk treeWalk = new TreeWalk(git.getRepository());
-        treeWalk.reset(commit.getTree());
-        treeWalk.setRecursive(true);
-        // Itera sui file modificati in questo commit
+        treeWalk.reset(treeId);
         while (treeWalk.next()) {
-            // Se è una sottocartella o non è un file Java, salta
-            if (treeWalk.isSubtree() || treeWalk.getPathString().endsWith(".java")) {
-                continue;
+            if (treeWalk.isSubtree()) {
+                treeWalk.enterSubtree();
+            } else {
+                if (treeWalk.getPathString().endsWith(".java")) {
+                    String fileToAdd = treeWalk.getPathString();
+                    affectedFiles.add(fileToAdd);
+                }
             }
-            affectedFiles.add(treeWalk.getPathString());  // Aggiunge il file Java alla lista
         }
-        return affectedFiles;  // Restituisce la lista dei file Java modificati
+        return affectedFiles;
     }
 
 
