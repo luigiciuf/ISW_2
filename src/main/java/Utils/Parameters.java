@@ -1,5 +1,11 @@
 package Utils;
 
+/**
+ * Classe che contiene parametri e costanti utilizzati in altre parti del progetto.
+ * Questa classe fornisce valori predefiniti per i nomi dei progetti, tipi di file,
+ * nomi di file di dataset, e URL per repository Git.
+ * La classe non deve essere istanziata; è progettata per fornire solo costanti.
+ */
 public class Parameters {
     private Parameters () {
         throw new IllegalStateException("Parameters class must not be instantiated");
