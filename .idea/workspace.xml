@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="comments added">
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="remove code smell">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/JsonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/JsonUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +107,7 @@
       <workItem from="1714982994395" duration="4214000" />
       <workItem from="1715000491484" duration="3247000" />
       <workItem from="1715064387237" duration="823000" />
+      <workItem from="1715065433908" duration="734000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -283,7 +285,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715064818571</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1715065557909</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715065557909</updated>
+    </task>
+    <task id="LOCAL-00024" summary="remove code smell">
+      <option name="closed" value="true" />
+      <created>1715065872115</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715065872115</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,9 +335,10 @@
     <MESSAGE value="added comments" />
     <MESSAGE value="added Parameters" />
     <MESSAGE value="added Controller.java" />
-    <MESSAGE value="some changes" />
     <MESSAGE value="comments added" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments added" />
+    <MESSAGE value="some changes" />
+    <MESSAGE value="remove code smell" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove code smell" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -330,7 +349,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/milestone1/RetrieveCommits.java</url>
-          <line>34</line>
+          <line>33</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
