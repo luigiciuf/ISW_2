@@ -175,7 +175,6 @@ public class Controller {
             }
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error in dataset.csv writer", e);
-            e.printStackTrace();
         }
     }
 }
