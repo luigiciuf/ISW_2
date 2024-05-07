@@ -5,7 +5,6 @@ import org.eclipse.jgit.revwalk.RevCommit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
-import java.util.List;
 
 public class Commit {
     private RevCommit rev;

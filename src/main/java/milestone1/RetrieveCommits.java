@@ -13,7 +13,6 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class RetrieveCommits {
     private Git git;

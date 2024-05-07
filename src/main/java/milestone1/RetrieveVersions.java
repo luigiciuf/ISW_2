@@ -21,7 +21,6 @@ import java.util.regex.Pattern; // Import per pattern regex
 import java.util.stream.Collectors; // Import per stream e operazioni su collezioni
 
 import Utils.JsonUtils;
-import Utils.Utilities;
 import model.Version;
 import org.json.JSONArray; // Libreria per JSON
 import org.json.JSONException; // Eccezioni per errori JSON
