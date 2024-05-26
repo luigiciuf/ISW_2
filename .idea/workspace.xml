@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="Added evalutation and profileML">
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="Smote added to pom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +118,7 @@
       <workItem from="1716274627585" duration="596000" />
       <workItem from="1716282956475" duration="580000" />
       <workItem from="1716393856016" duration="1778000" />
-      <workItem from="1716711471116" duration="1756000" />
+      <workItem from="1716711471116" duration="2410000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -336,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716712621980</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Smote added to pom">
+      <option name="closed" value="true" />
+      <created>1716713685721</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1716713685721</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +383,8 @@
     <MESSAGE value="remove code smell" />
     <MESSAGE value="Added weka and ConvertCSV2Arff" />
     <MESSAGE value="Added evalutation and profileML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added evalutation and profileML" />
+    <MESSAGE value="Smote added to pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Smote added to pom" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
