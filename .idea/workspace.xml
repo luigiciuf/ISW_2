@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="Smote added to pom">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="remove code smell" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +116,7 @@
       <workItem from="1716274627585" duration="596000" />
       <workItem from="1716282956475" duration="580000" />
       <workItem from="1716393856016" duration="1778000" />
-      <workItem from="1716711471116" duration="2410000" />
+      <workItem from="1716711471116" duration="2755000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -344,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716713685721</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="remove code smell">
+      <option name="closed" value="true" />
+      <created>1716714758085</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1716714758085</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,11 +386,11 @@
     <MESSAGE value="added Controller.java" />
     <MESSAGE value="comments added" />
     <MESSAGE value="some changes" />
-    <MESSAGE value="remove code smell" />
     <MESSAGE value="Added weka and ConvertCSV2Arff" />
     <MESSAGE value="Added evalutation and profileML" />
     <MESSAGE value="Smote added to pom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Smote added to pom" />
+    <MESSAGE value="remove code smell" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove code smell" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

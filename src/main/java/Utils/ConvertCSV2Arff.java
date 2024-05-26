@@ -8,6 +8,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class ConvertCSV2Arff {
+    // Costruttore privato per nascondere quello pubblico implicito
+    private ConvertCSV2Arff() {
+        // Costruttore privato
+    }
     public static void convertCsvToArff(String csvPath, String arffPath) throws IOException {
         // Load CSV
         CSVLoader csvLoader = new CSVLoader();
