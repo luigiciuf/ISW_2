@@ -24,18 +24,30 @@ public class DataProcessor {
         super();
     }
 
-    // Setter per i dati di addestramento
+    /**
+     * imposto i dati di addestramento
+     * @param trainingData Istanza del set di dati di addestramento
+     */
     public void setTrainingData(Instances trainingData) {
         this.trainingData = trainingData;
     }
 
-    // Setter per i dati di test
+    /**
+     * imposto i dati di test
+     * @param testingData istanza del set di dati di test
+     */
     public void setTestingData(Instances testingData) {
         this.testingData = testingData;
     }
 
     // Metodo per la selezione delle caratteristiche
     // selectionMethod - metodo di selezione (es. "BEST_FIRST")
+
+    /**
+     * applica la selezioni delle cratteristiche al set di dati sia di addestramento che di test
+     * @param selectionMethod il metodo di selezione delle caratteristiche
+     * @throws Exception eccezione che si verifa se vi è un erroe durante la selezione delle caratteristiche
+     */
     public void performFeatureSelection(String selectionMethod) throws Exception {
         if (selectionMethod.equals("BEST_FIRST")) {
             // Inizializza la selezione degli attributi con BestFirst e CfsSubsetEval

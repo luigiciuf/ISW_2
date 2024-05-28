@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="addes DataProcessor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Utils/CSVFilter.java" afterDir="false" />
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="added CSVFilter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/milestone2/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone2/DataProcessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/luigi/IdeaProjects/ISW_2",
@@ -140,7 +141,8 @@
       <workItem from="1716879484085" duration="913000" />
       <workItem from="1716888888994" duration="451000" />
       <workItem from="1716893390880" duration="171000" />
-      <workItem from="1716896722113" duration="1137000" />
+      <workItem from="1716896722113" duration="1935000" />
+      <workItem from="1716900929076" duration="664000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -398,7 +400,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716880296635</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="added CSVFilter">
+      <option name="closed" value="true" />
+      <created>1716898147571</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716898147571</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +449,8 @@
     <MESSAGE value="Smote added to pom" />
     <MESSAGE value="remove code smell" />
     <MESSAGE value="addes DataProcessor" />
-    <option name="LAST_COMMIT_MESSAGE" value="addes DataProcessor" />
+    <MESSAGE value="added CSVFilter" />
+    <option name="LAST_COMMIT_MESSAGE" value="added CSVFilter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
