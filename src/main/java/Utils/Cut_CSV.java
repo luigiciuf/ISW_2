@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CSVFilter {
+public class Cut_CSV {
     public static void main(String[] args) {
         // Percorsi dei file
         String versionsCsvFilePath = "BOOKKEEPERVersionInfo.csv";
