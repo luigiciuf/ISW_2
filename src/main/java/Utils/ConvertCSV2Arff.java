@@ -3,6 +3,10 @@ package Utils;
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.NumericToNominal;
+import weka.core.Attribute;
+import weka.filters.unsupervised.attribute.StringToNominal;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,10 +17,11 @@ public class ConvertCSV2Arff {
     private ConvertCSV2Arff() {
         // Costruttore privato
     }
-    public static void convertCsvToArff(String csvPath, String arffPath) throws IOException {
+    public static void convertCsvToArff(String csvPath, String arffPath) throws Exception {
         // Load CSV
         CSVLoader csvLoader = new CSVLoader();
         csvLoader.setSource(new File(csvPath));
+        csvLoader.setNominalAttributes("last"); // Imposta l'ultimo attributo come nominale
         Instances data = csvLoader.getDataSet();
 
         // Save ARFF
@@ -36,7 +41,7 @@ public class ConvertCSV2Arff {
         switch (datasetChoice) {
             case "BOOKKEEPER":
                 // Path del file CSV per il dataset BOOKKEEPER
-                csvPath = "C:/Users/luigi/IdeaProjects/ISW_2/BOOKKEEPERdataset.csv";
+                csvPath = "C:/Users/luigi/IdeaProjects/ISW_2/BOOKKEEPER_filter.csv";
                 break;
             case "ZOOKEEPER":
                 // Path del file CSV per il dataset ZOOKEEPER
@@ -55,7 +60,7 @@ public class ConvertCSV2Arff {
         try {
             convertCsvToArff(csvPath, arffPath); // Chiama il metodo per convertire il CSV in ARFF
             System.out.println("Conversion completed successfully.");
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("An error occurred during conversion: " + e.getMessage());
         } finally {
             // Chiudi lo scanner alla fine per evitare memory leak

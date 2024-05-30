@@ -1,14 +1,16 @@
 package modelML;
-
-import weka.classifiers.Evaluation; // Importa la classe Evaluation dal pacchetto Weka
-;
-public class Evalutation {
+import weka.classifiers.Evaluation;
+import modelML.ProfileML.CostSensitivity;
+import modelML.ProfileML.SamplingMethod;
+import modelML.ProfileML.FeatureSelection;
+import modelML.ProfileML.Classifier;
+public class EvaluationML {
     // Variabili di istanza per immagazzinare la valutazione e le configurazioni del modello
     Evaluation eval; // Oggetto Evaluation per la valutazione del modello
-    ProfileML.FeatureSelection fs; // Metodo di selezione delle caratteristiche (Feature Selection)
-    ProfileML.SamplingMethod smp; // Metodo di campionamento (Sampling Method)
-    ProfileML.CostSensitivity cs; // Sensibilità ai costi (Cost Sensitivity)
-    ProfileML.Classifier classif; // Tipo di classificatore (Classifier)
+    FeatureSelection fs; // Metodo di selezione delle caratteristiche (Feature Selection)
+    SamplingMethod smp; // Metodo di campionamento (Sampling Method)
+    CostSensitivity cs; // Sensibilità ai costi (Cost Sensitivity)
+    Classifier classif; // Tipo di classificatore (Classifier)
 
     // Costruttore della classe che inizializza tutte le variabili di istanza
     /**
@@ -19,7 +21,7 @@ public class Evalutation {
      * @param cs Sensibilità ai costi (Cost Sensitivity).
      * @param classif Tipo di classificatore (Classifier).
      */
-    public Evalutation(Evaluation eval, ProfileML.FeatureSelection fs, ProfileML.SamplingMethod smp, ProfileML.CostSensitivity cs, ProfileML.Classifier classif){
+    public EvaluationML(Evaluation eval,FeatureSelection fs, SamplingMethod smp, CostSensitivity cs, Classifier classif){
         super(); // Chiama il costruttore della superclasse (Object)
         this.eval = eval; // Assegna il parametro eval alla variabile di istanza eval
         this.fs = fs; // Assegna il parametro fs alla variabile di istanza fs
@@ -41,7 +43,7 @@ public class Evalutation {
      * Restituisce il metodo di selezione delle caratteristiche.
      * @return fs Metodo di selezione delle caratteristiche (Feature Selection).
      */
-    public ProfileML.FeatureSelection getFs() {
+    public FeatureSelection getFs() {
         return fs; // Restituisce il metodo di selezione delle caratteristiche
     }
 
@@ -49,7 +51,7 @@ public class Evalutation {
      * Restituisce il metodo di campionamento.
      * @return smp Metodo di campionamento (Sampling Method).
      */
-    public ProfileML.SamplingMethod getSmp() {
+    public SamplingMethod getSmp() {
         return smp; // Restituisce il metodo di campionamento
     }
 
@@ -57,7 +59,7 @@ public class Evalutation {
      * Restituisce la sensibilità ai costi.
      * @return cs Sensibilità ai costi (Cost Sensitivity).
      */
-    public ProfileML.CostSensitivity getCs() {
+    public CostSensitivity getCs() {
         return cs; // Restituisce la sensibilità ai costi
     }
 
@@ -65,7 +67,7 @@ public class Evalutation {
      * Restituisce il tipo di classificatore.
      * @return classif Tipo di classificatore (Classifier).
      */
-    public ProfileML.Classifier getClassif() {
+    public Classifier getClassif() {
         return classif; // Restituisce il tipo di classificatore
     }
 }
