@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="added CSVFilter">
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="rename file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/milestone2/DataProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone2/DataProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/ConvertCSV2Arff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/ConvertCSV2Arff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/milestone2/MLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone2/MLController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,7 @@
   "keyToString": {
     "Application.CSVFilter.executor": "Run",
     "Application.Controller.executor": "Run",
+    "Application.ConvertCSV2Arff.executor": "Run",
     "Application.MLController.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -66,7 +68,7 @@
       <recent name="C:\Users\luigi\IdeaProjects\ISW_2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CSVFilter">
+  <component name="RunManager" selected="Application.ConvertCSV2Arff">
     <configuration name="CSVFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Utils.CSVFilter" />
       <module name="ISW_2" />
@@ -93,8 +95,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConvertCSV2Arff" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Utils.ConvertCSV2Arff" />
+      <module name="ISW_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ConvertCSV2Arff" />
         <item itemvalue="Application.CSVFilter" />
         <item itemvalue="Application.Controller" />
       </list>
@@ -143,6 +159,9 @@
       <workItem from="1716893390880" duration="171000" />
       <workItem from="1716896722113" duration="1935000" />
       <workItem from="1716900929076" duration="664000" />
+      <workItem from="1716920837722" duration="1052000" />
+      <workItem from="1716968337796" duration="98000" />
+      <workItem from="1717051417390" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -408,7 +427,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716898147571</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added comments">
+      <option name="closed" value="true" />
+      <created>1716920978632</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716920978632</updated>
+    </task>
+    <task id="LOCAL-00035" summary="rename file">
+      <option name="closed" value="true" />
+      <created>1716921108756</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1716921108756</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +474,6 @@
     <MESSAGE value="added JsonUtils" />
     <MESSAGE value="getter and setter Instance added" />
     <MESSAGE value="added updateInstance" />
-    <MESSAGE value="added comments" />
     <MESSAGE value="added Parameters" />
     <MESSAGE value="added Controller.java" />
     <MESSAGE value="comments added" />
@@ -450,7 +484,9 @@
     <MESSAGE value="remove code smell" />
     <MESSAGE value="addes DataProcessor" />
     <MESSAGE value="added CSVFilter" />
-    <option name="LAST_COMMIT_MESSAGE" value="added CSVFilter" />
+    <MESSAGE value="added comments" />
+    <MESSAGE value="rename file" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
