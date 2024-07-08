@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;

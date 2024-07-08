@@ -1,6 +1,6 @@
 package milestone1;
 
-import Utils.JsonUtils;
+import utils.JsonUtils;
 import model.Ticket;
 import model.Version;
 import org.json.JSONArray;

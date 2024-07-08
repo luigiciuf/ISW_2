@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Cut_CSV {
+public class CutCSV {
 
     public static void cutCsv(String projectName) {
         // Percorsi dei file basati sul nome del progetto

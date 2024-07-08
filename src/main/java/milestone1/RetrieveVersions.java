@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import Utils.JsonUtils;
+import utils.JsonUtils;
 import model.Version;
 import org.json.JSONArray;
 import org.json.JSONException;

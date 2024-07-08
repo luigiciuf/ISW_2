@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 /**
  * Classe che contiene parametri e costanti utilizzati in altre parti del progetto.

@@ -1,6 +1,6 @@
 package milestone1;
 
-import Utils.Utilities;
+import utils.Utilities;
 import model.Commit;
 import model.Instance;
 import model.Version;

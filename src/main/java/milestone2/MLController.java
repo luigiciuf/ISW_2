@@ -1,7 +1,7 @@
 package milestone2;
 
 
-import Utils.Parameters;
+import utils.Parameters;
 import modelML.EvaluationML;
 import weka.classifiers.Classifier;
 import weka.classifiers.CostMatrix;

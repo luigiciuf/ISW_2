@@ -6748,7 +6748,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.4.0,src/main/java/com/twitter/distributedlog/util/Sizable.java,31,31,31,31,31,31,1,0,0,0,0
 4.4.0,src/main/java/com/twitter/distributedlog/util/TimeSequencer.java,39,39,39,39,39,39,1,0,0,0,0
 4.4.0,src/main/java/com/twitter/distributedlog/util/Transaction.java,97,97,97,97,97,97,1,0,0,0,0
-4.4.0,src/main/java/com/twitter/distributedlog/util/Utils.java,569,569,569,569,569,569,1,0,0,0,0
+4.4.0,src/main/java/com/twitter/distributedlog/util/utils.java,569,569,569,569,569,569,1,0,0,0,0
 4.4.0,src/main/java/com/twitter/distributedlog/util/package-info.java,21,21,21,21,21,21,1,0,0,0,0
 4.4.0,src/main/java/com/twitter/distributedlog/zk/DefaultZKOp.java,45,45,45,45,45,45,1,0,0,0,0
 4.4.0,src/main/java/com/twitter/distributedlog/zk/ZKOp.java,63,63,63,63,63,63,1,0,0,0,0
@@ -7911,7 +7911,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.5.0,src/main/java/com/twitter/distributedlog/util/Sizable.java,682,682,31,682,31,31,22,0,1,0,0
 4.5.0,src/main/java/com/twitter/distributedlog/util/TimeSequencer.java,858,858,39,858,39,39,22,0,1,0,0
 4.5.0,src/main/java/com/twitter/distributedlog/util/Transaction.java,2134,2134,97,2134,97,97,22,0,1,0,0
-4.5.0,src/main/java/com/twitter/distributedlog/util/Utils.java,12670,12898,607,12670,607,452,28,0,1,0,0
+4.5.0,src/main/java/com/twitter/distributedlog/util/utils.java,12670,12898,607,12670,607,452,28,0,1,0,0
 4.5.0,src/main/java/com/twitter/distributedlog/util/package-info.java,378,418,21,378,21,13,28,0,1,0,0
 4.5.0,src/main/java/com/twitter/distributedlog/zk/DefaultZKOp.java,1030,1160,55,1030,55,35,29,0,1,0,0
 4.5.0,src/main/java/com/twitter/distributedlog/zk/ZKOp.java,1386,1386,63,1386,63,63,22,0,1,0,0
@@ -8366,7 +8366,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.5.0,src/main/java/org/apache/distributedlog/util/Sizable.java,341,341,31,341,31,31,11,0,0,0,0
 4.5.0,src/main/java/org/apache/distributedlog/util/TimeSequencer.java,469,469,40,469,40,39,12,0,0,0,0
 4.5.0,src/main/java/org/apache/distributedlog/util/Transaction.java,1164,1164,97,1164,97,97,12,0,0,0,0
-4.5.0,src/main/java/org/apache/distributedlog/util/Utils.java,7517,7517,746,7517,746,536,14,0,0,0,0
+4.5.0,src/main/java/org/apache/distributedlog/util/utils.java,7517,7517,746,7517,746,536,14,0,0,0,0
 4.5.0,src/main/java/org/apache/distributedlog/zk/DefaultZKOp.java,660,660,55,660,55,55,12,0,0,0,0
 4.5.0,src/main/java/org/apache/distributedlog/zk/LimitedPermitManager.java,2340,2340,195,2340,195,195,12,0,0,0,0
 4.5.0,src/main/java/org/apache/distributedlog/zk/ZKOp.java,756,756,63,756,63,63,12,0,0,0,0
@@ -9698,7 +9698,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.5.1,src/main/java/com/twitter/distributedlog/util/Sizable.java,682,682,31,682,31,31,22,0,2,0,0
 4.5.1,src/main/java/com/twitter/distributedlog/util/TimeSequencer.java,858,858,39,858,39,39,22,0,2,0,0
 4.5.1,src/main/java/com/twitter/distributedlog/util/Transaction.java,2134,2134,97,2134,97,97,22,0,2,0,0
-4.5.1,src/main/java/com/twitter/distributedlog/util/Utils.java,12670,12898,607,12670,607,452,28,0,2,0,0
+4.5.1,src/main/java/com/twitter/distributedlog/util/utils.java,12670,12898,607,12670,607,452,28,0,2,0,0
 4.5.1,src/main/java/com/twitter/distributedlog/util/package-info.java,378,418,21,378,21,13,28,0,2,0,0
 4.5.1,src/main/java/com/twitter/distributedlog/zk/DefaultZKOp.java,1030,1160,55,1030,55,35,29,0,2,0,0
 4.5.1,src/main/java/com/twitter/distributedlog/zk/ZKOp.java,1386,1386,63,1386,63,63,22,0,2,0,0
@@ -10153,7 +10153,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.5.1,src/main/java/org/apache/distributedlog/util/Sizable.java,341,341,31,341,31,31,11,0,1,0,0
 4.5.1,src/main/java/org/apache/distributedlog/util/TimeSequencer.java,789,789,40,789,40,39,20,0,1,0,0
 4.5.1,src/main/java/org/apache/distributedlog/util/Transaction.java,1940,1940,97,1940,97,97,20,0,1,0,0
-4.5.1,src/main/java/org/apache/distributedlog/util/Utils.java,13485,13485,746,13485,746,612,22,0,1,0,0
+4.5.1,src/main/java/org/apache/distributedlog/util/utils.java,13485,13485,746,13485,746,612,22,0,1,0,0
 4.5.1,src/main/java/org/apache/distributedlog/zk/DefaultZKOp.java,1100,1100,55,1100,55,55,20,0,1,0,0
 4.5.1,src/main/java/org/apache/distributedlog/zk/LimitedPermitManager.java,3900,3900,195,3900,195,195,20,0,1,0,0
 4.5.1,src/main/java/org/apache/distributedlog/zk/ZKOp.java,1260,1260,63,1260,63,63,20,0,1,0,0
@@ -11524,7 +11524,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.6.0,src/main/java/com/twitter/distributedlog/util/Sizable.java,682,682,31,682,31,31,22,0,3,0,0
 4.6.0,src/main/java/com/twitter/distributedlog/util/TimeSequencer.java,858,858,39,858,39,39,22,0,3,0,0
 4.6.0,src/main/java/com/twitter/distributedlog/util/Transaction.java,2134,2134,97,2134,97,97,22,0,3,0,0
-4.6.0,src/main/java/com/twitter/distributedlog/util/Utils.java,12670,12898,607,12670,607,452,28,0,3,0,0
+4.6.0,src/main/java/com/twitter/distributedlog/util/utils.java,12670,12898,607,12670,607,452,28,0,3,0,0
 4.6.0,src/main/java/com/twitter/distributedlog/util/package-info.java,378,418,21,378,21,13,28,0,3,0,0
 4.6.0,src/main/java/com/twitter/distributedlog/zk/DefaultZKOp.java,1030,1160,55,1030,55,35,29,0,3,0,0
 4.6.0,src/main/java/com/twitter/distributedlog/zk/ZKOp.java,1386,1386,63,1386,63,63,22,0,3,0,0
@@ -11979,7 +11979,7 @@ Version,Name,Size,LocTouched,MaxLocAdded,Churn,MaxChurn,AvgChurn,NR,NFix,Age,max
 4.6.0,src/main/java/org/apache/distributedlog/util/Sizable.java,341,341,31,341,31,31,11,0,2,0,0
 4.6.0,src/main/java/org/apache/distributedlog/util/TimeSequencer.java,1189,1189,40,1189,40,39,30,0,2,0,0
 4.6.0,src/main/java/org/apache/distributedlog/util/Transaction.java,2910,2910,97,2910,97,97,30,0,2,0,0
-4.6.0,src/main/java/org/apache/distributedlog/util/Utils.java,20985,20985,750,20985,750,655,32,0,2,0,0
+4.6.0,src/main/java/org/apache/distributedlog/util/utils.java,20985,20985,750,20985,750,655,32,0,2,0,0
 4.6.0,src/main/java/org/apache/distributedlog/zk/DefaultZKOp.java,1650,1650,55,1650,55,55,30,0,2,0,0
 4.6.0,src/main/java/org/apache/distributedlog/zk/LimitedPermitManager.java,5860,5860,196,5860,196,195,30,0,2,0,0
 4.6.0,src/main/java/org/apache/distributedlog/zk/ZKOp.java,1900,1900,64,1900,64,63,30,0,2,0,0

@@ -1,6 +1,6 @@
 package milestone1;
 
-import Utils.Parameters;
+import utils.Parameters;
 import model.Commit;
 import model.Instance;
 import model.Ticket;
