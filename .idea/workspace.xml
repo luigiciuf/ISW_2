@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="changes">
+    <list default="true" id="311f5323-bec6-4005-9ba5-b4f12113c161" name="Changes" comment="update cut csv">
+      <change afterPath="$PROJECT_DIR$/acume/auc_generate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acume/configs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acume/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/acume/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/milestone2/AcumeInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Acume.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BOOKKEEPER_filter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BOOKKEEPER_filter.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Cut_CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Cut_CSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ZOOKEEPERdataset.arff" beforeDir="false" afterPath="$PROJECT_DIR$/ZOOKEEPERdataset.arff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/percorso/del/file/output.arff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/ConvertCSV2Arff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/ConvertCSV2Arff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/milestone2/MLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/milestone2/MLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modelML/EvaluationML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modelML/EvaluationML.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,40 +49,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.CSVFilter.executor": "Run",
-    "Application.CheckBugginess.executor": "Run",
-    "Application.Controller.executor": "Run",
-    "Application.ConvertCSV2Arff.executor": "Run",
-    "Application.Cut_CSV.executor": "Run",
-    "Application.MLController.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/luigi/IdeaProjects/ISW_2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.CSVFilter.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CheckBugginess.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Controller.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ConvertCSV2Arff.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Cut_CSV.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MLController.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/luigi/IdeaProjects/ISW_2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\luigi\IdeaProjects\ISW_2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Cut_CSV">
+  <component name="RunManager" selected="Application.MLController">
     <configuration name="CSVFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Utils.CSVFilter" />
       <module name="ISW_2" />
@@ -139,9 +150,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Cut_CSV" />
-        <item itemvalue="Application.ConvertCSV2Arff" />
         <item itemvalue="Application.MLController" />
+        <item itemvalue="Application.ConvertCSV2Arff" />
+        <item itemvalue="Application.Cut_CSV" />
         <item itemvalue="Application.CSVFilter" />
         <item itemvalue="Application.Controller" />
       </list>
@@ -196,7 +207,19 @@
       <workItem from="1717061476639" duration="25000" />
       <workItem from="1717072053394" duration="1009000" />
       <workItem from="1717079060718" duration="9090000" />
-      <workItem from="1717396749163" duration="310000" />
+      <workItem from="1717396749163" duration="1880000" />
+      <workItem from="1717400289424" duration="7721000" />
+      <workItem from="1717434419492" duration="220000" />
+      <workItem from="1717434668520" duration="1248000" />
+      <workItem from="1717435945111" duration="803000" />
+      <workItem from="1717483939850" duration="3442000" />
+      <workItem from="1717487867533" duration="2792000" />
+      <workItem from="1717490957030" duration="4000" />
+      <workItem from="1717503606914" duration="599000" />
+      <workItem from="1717693618187" duration="86000" />
+      <workItem from="1719217613186" duration="1102000" />
+      <workItem from="1719219258943" duration="37000" />
+      <workItem from="1719742254870" duration="619000" />
     </task>
     <task id="LOCAL-00001" summary="model added">
       <option name="closed" value="true" />
@@ -494,11 +517,22 @@
       <option name="project" value="LOCAL" />
       <updated>1717088287489</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update cut csv">
+      <option name="closed" value="true" />
+      <created>1717397132712</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717397132712</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.py" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -512,7 +546,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&#10;resolution of some problems" />
     <MESSAGE value="&#10;add classes" />
     <MESSAGE value="update class" />
     <MESSAGE value="update RetrieveTicketID" />
@@ -537,7 +570,8 @@
     <MESSAGE value="rename file" />
     <MESSAGE value="ConvertCSV2Arff" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="update cut csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="update cut csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -553,5 +587,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

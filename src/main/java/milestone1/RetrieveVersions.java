@@ -1,30 +1,30 @@
 package milestone1;
 
-import java.io.BufferedReader; // Import per leggere file
-import java.io.FileReader; // Import per leggere file di testo
-import java.io.FileWriter; // Import per scrivere su file
-import java.io.IOException; // Eccezioni per operazioni di I/O
-import java.text.ParseException; // Eccezioni per errori di parsing
-import java.text.SimpleDateFormat; // Formattazione di date
-import java.time.LocalDate; // Rappresentazione di date (Java 8+)
-import java.time.LocalDateTime; // Rappresentazione di date con orario
-import java.util.List; // Import per le liste
-import java.util.Map; // Import per le mappe
-import java.util.logging.Level; // Import per livelli di logging
-import java.util.logging.Logger; // Import per log
-import java.util.ArrayList; // Import per liste dinamiche
-import java.util.Collections; // Utilità per ordinamento
-import java.util.Comparator; // Interfaccia per comparatori
-import java.util.Date; // Rappresentazione di date
-import java.util.HashMap; // Import per mappe dinamiche
-import java.util.regex.Pattern; // Import per pattern regex
-import java.util.stream.Collectors; // Import per stream e operazioni su collezioni
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import Utils.JsonUtils;
 import model.Version;
-import org.json.JSONArray; // Libreria per JSON
-import org.json.JSONException; // Eccezioni per errori JSON
-import org.json.JSONObject; // Oggetti JSON
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 

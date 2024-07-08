@@ -26,8 +26,10 @@ public class MLController {
     private MLController(){
         super();
     }
-    public static final String proj = Parameters.PROJECT1;
+    public static final String proj = Parameters.PROJECT2;
     private static final Logger LOGGER = Logger.getLogger("Analyzer");
+    private static String NPofB20 = null;
+
 
     public static void main(String[] args) throws Exception{
         //load dataset
@@ -69,7 +71,7 @@ public class MLController {
                         // Execute
                         for(ProfileML.Classifier classif : ProfileML.Classifier.values()) {		// 3 Classifier: RandomForest, NaiveBayes, Ibk
                             eval = run(train, test, classif, cs);
-                            evals.add(new EvaluationML(eval, fs, smp, cs, classif));
+                            evals.add(new EvaluationML(eval, fs, smp, cs, classif,NPofB20));
                         }
                     }
                 }
@@ -101,10 +103,12 @@ public class MLController {
             costSensitive.buildClassifier(train);
             evaluation = new Evaluation(test, costSensitive.getCostMatrix());
             evaluation.evaluateModel(costSensitive, test);
+            NPofB20= AcumeInfo.getNPofB20(test,costSensitive);
         } else {
             classifier.buildClassifier(train);
             evaluation = new Evaluation(test);
             evaluation.evaluateModel(classifier, test);
+            NPofB20= AcumeInfo.getNPofB20(test,classifier);
         }
         return evaluation;
     }
@@ -122,10 +126,9 @@ public class MLController {
 
     public static void createCsv(List<EvaluationML> evals, int numVers, int numClassif) throws IOException {
         String outname = proj + Parameters.DATASET_ANALISYS; //Name of CSV for output
-
         // Utilizza try-with-resources per garantire la chiusura automatica del FileWriter
         try (FileWriter fileWriter = new FileWriter(outname)) {
-            fileWriter.append("Dataset,#TrainRelease,Classifier,FeatSel,Sampling,CostSens,TP,FP,FN,TN,Precision,Recall,AUC,Kappa\n");
+            fileWriter.append("Dataset,#TrainRelease,Classifier,FeatSel,Sampling,CostSens,TP,FP,FN,TN,Precision,Recall,AUC,Kappa,NPofB20\n");
             int trainRelease = 1;
             int count = 0;
             String classifier;
@@ -148,6 +151,7 @@ public class MLController {
                 String rec = String.format(Locale.US, "%.3f", e.recall(1));
                 String aoc = String.format(Locale.US, "%.3f", e.areaUnderROC(1));
                 String k = String.format(Locale.US, "%.3f", e.kappa());
+                String NPofB20= eval.getnPofB20().length() > 5 ? eval.getnPofB20().substring(0, 5) : eval.getnPofB20();
                 classifier = eval.getClassif().toString().toLowerCase().replace("_", " ");
                 fs = eval.getFs().toString().toLowerCase().replace("_", " ");
                 smp = eval.getSmp().toString().toLowerCase().replace("_", " ");
@@ -159,7 +163,7 @@ public class MLController {
                 tn = (int) confMatr[1][1];
 
                 String line = String.format("%s,%d,%s,%s,%s,%s,%d,%d,%d,%d,%s,%s,%s,%s%n", Parameters.PROJECT1,
-                        trainRelease, classifier, fs, smp, cs, tp, fp, fn, tn, prec, rec, aoc, k);
+                        trainRelease, classifier, fs, smp, cs, tp, fp, fn, tn, prec, rec, aoc, k,NPofB20);
                 fileWriter.append(line);
                 count++;
             }
@@ -169,5 +173,6 @@ public class MLController {
             e.printStackTrace();
         }
     }
+
 
 }

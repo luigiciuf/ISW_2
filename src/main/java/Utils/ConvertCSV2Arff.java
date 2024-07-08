@@ -3,13 +3,7 @@ package Utils;
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
-import weka.filters.Filter;
-import weka.filters.unsupervised.attribute.NumericToNominal;
-import weka.core.Attribute;
-import weka.filters.unsupervised.attribute.StringToNominal;
-
 import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class ConvertCSV2Arff {
@@ -45,7 +39,7 @@ public class ConvertCSV2Arff {
                 break;
             case "ZOOKEEPER":
                 // Path del file CSV per il dataset ZOOKEEPER
-                csvPath = "C:/Users/luigi/IdeaProjects/ISW_2/ZOOKEEPERdataset.csv";
+                csvPath = "C:/Users/luigi/IdeaProjects/ISW_2/ZOOKEEPER_filter.csv";
                 break;
             default:
                 // Se la scelta del dataset non è valida, stampa un messaggio di errore e termina il programma
