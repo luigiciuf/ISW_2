@@ -36,7 +36,6 @@ public class MLController {
         String projPath = System.getProperty("user.dir");
         String datasetPath = projPath + "/" + proj + "dataset.arff";
 
-// Stampa del percorso del dataset ARFF
         System.out.println("Loading dataset from: " + datasetPath);
 
         DataSource source = new DataSource(datasetPath);
