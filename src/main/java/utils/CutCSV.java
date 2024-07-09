@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class CutCSV {
+    private static final Logger LOGGER = Logger.getLogger(Parameters.class.getName());
 
     public static void cutCsv(String projectName) {
         // Percorsi dei file basati sul nome del progetto
@@ -34,7 +36,7 @@ public class CutCSV {
                 versions.add(allVersions.get(i));
             }
         } catch (IOException e) {
-            System.err.println("Errore durante la lettura del file delle versioni: " + e.getMessage());
+            LOGGER.severe("Errore durante la lettura del file delle versioni: " + e.getMessage());
             return;
         }
 
@@ -54,11 +56,10 @@ public class CutCSV {
                 if (parts.length > 0 && versions.contains(parts[0])) {
                     writer.write(row);
                     writer.newLine();
-                    System.out.println(row); // Stampa la riga
                 }
             }
         } catch (IOException e) {
-            System.err.println("Errore durante la lettura del file dei dati o la scrittura del file filtrato: " + e.getMessage());
+            LOGGER.severe("Errore durante la lettura del file dei dati o la scrittura del file filtrato: " + e.getMessage());
         }
     }
 

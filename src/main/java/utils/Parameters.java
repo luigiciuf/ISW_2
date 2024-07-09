@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.logging.Logger;
+
 /**
  * Classe che contiene parametri e costanti utilizzati in altre parti del progetto.
  * Questa classe fornisce valori predefiniti per i nomi dei progetti, tipi di file,
@@ -19,6 +21,7 @@ public class Parameters {
     public static final String OUTPUT_DIRECTORY = "C:/Users/luigi/IdeaProjects/ISW_2/output";
     public static final String ACUME_DRECTORY="C:/Users/luigi/IdeaProjects/ISW_2/acume/";
     public static final String BASE_PATH="C:/Users/luigi/IdeaProjects/ISW_2/";
+
     public static String toUrl(String project) {
         return String.format("https://github.com/apache/%s.git", project);
     }

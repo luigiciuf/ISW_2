@@ -24,7 +24,7 @@ public class RetrieveTicketID {
      * @param projName Nome del progetto JIRA da cui estrarre i ticket.
      */
     public RetrieveTicketID(String projName){
-        this.projName=projName;;
+        this.projName=projName;
         this.tickets=new ArrayList<>();
         discarded=0;
     }

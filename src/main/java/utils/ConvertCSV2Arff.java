@@ -4,6 +4,7 @@ import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.CSVLoader;
 import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ConvertCSV2Arff {
@@ -13,9 +14,8 @@ public class ConvertCSV2Arff {
     }
     private static final String BOOKKEEPER_DATASET = "BOOKKEEPER";
     private static final String ZOOKEEPER_DATASET = "ZOOKEEPER";
-    private static final String BASE_PATH = "C:/Users/luigi/IdeaProjects/ISW_2/";
 
-    public static void convertCsvToArff(String csvPath, String arffPath) throws Exception {
+    public static void convertCsvToArff(String csvPath, String arffPath) throws IOException {
         // Load CSV
         CSVLoader csvLoader = new CSVLoader();
         csvLoader.setSource(new File(csvPath));
@@ -28,7 +28,7 @@ public class ConvertCSV2Arff {
         arffSaver.setFile(new File(arffPath));
         arffSaver.writeBatch();
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         // qui andava il print rimosso, per code smell, per scegliere il dataset da convertire
         // Richiesta all'utente di inserire la scelta del dataset
@@ -50,11 +50,10 @@ public class ConvertCSV2Arff {
         // Nome del file ARFF basato sulla scelta del dataset
         String arffFileName = datasetChoice + "dataset.arff";
         // Path completo del file ARFF di output
-        String arffPath = "C:/Users/luigi/IdeaProjects/ISW_2/" + arffFileName;
+        String arffPath = Parameters.BASE_PATH + arffFileName;
 
         try {
-            convertCsvToArff(csvPath, arffPath); // Chiama il metodo per convertire il CSV in ARFF
-        } catch (Exception e) {
+                convertCsvToArff(csvPath, arffPath); // Chiama il metodo per convertire il CSV in ARFF
         } finally {
             // Chiudi lo scanner alla fine per evitare memory leak
             scanner.close();
