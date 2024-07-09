@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 public class CutCSV {
-    private static final Logger LOGGER = Logger.getLogger(Parameters.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CutCSV.class.getName());
 
     public static void cutCsv(String projectName) {
         // Percorsi dei file basati sul nome del progetto
@@ -64,7 +64,7 @@ public class CutCSV {
     }
 
     public static void main(String[] args) {
-        // Esempio di chiamata alla funzione cutCsv
+        // Esempio di chiamata alla funzione     cutCsv
         cutCsv("ZOOKEEPER");
     }
 }

@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.logging.Logger;
-
 /**
  * Classe che contiene parametri e costanti utilizzati in altre parti del progetto.
  * Questa classe fornisce valori predefiniti per i nomi dei progetti, tipi di file,
@@ -16,9 +14,7 @@ public class Parameters {
     public static final String PROJECT2 = "ZOOKEEPER";
     public static final String CLASSTYPE = ".java";
     public static final String DATASET = "dataset.csv";
-    public static final String DATASETDIR= "./dataset/";
     public static final String DATASET_ANALISYS = "analisys.csv";
-    public static final String OUTPUT_DIRECTORY = "C:/Users/luigi/IdeaProjects/ISW_2/output";
     public static final String ACUME_DRECTORY="C:/Users/luigi/IdeaProjects/ISW_2/acume/";
     public static final String BASE_PATH="C:/Users/luigi/IdeaProjects/ISW_2/";
 
