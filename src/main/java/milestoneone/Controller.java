@@ -168,9 +168,9 @@ public class Controller {
             for (Instance instance : instances) {
                 int bugginess = instance.isBugginess() ? 1 : 0;
                 String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s%n", instance.getVersion().getName(),
-                        instance.getName(), instance.getSize(), instance.getLocTouched(),
+                        instance.getName(), instance.getSize(), instance.getLoctouched(),
                         instance.getMaxLocAdded(), instance.getChurn(), instance.getMaxChurn(),
-                        instance.getAvgChurn(), instance.getNR(), instance.getNFix(), instance.getAge(),instance.getMaxLocTouched(), bugginess);
+                        instance.getAvgChurn(), instance.getNr(), instance.getnFix(), instance.getAge(),instance.getMaxLocTouched(), bugginess);
                 fileWriter.append(line);
             }
         } catch (Exception e) {

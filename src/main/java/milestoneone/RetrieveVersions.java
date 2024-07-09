@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
+import static java.util.stream.Collectors.toList;
 
 
 // Classe responsabile di recuperare e gestire informazioni sulle versioni
@@ -156,7 +156,7 @@ public class RetrieveVersions {
                 e.printStackTrace(); // Gestione dell'eccezione
             }
             return new Version(Long.parseLong(x[1]), x[2], d); // Crea un oggetto Version
-        }).collect(Collectors.toList());
+        }).collect(toList());
 
         in.close(); // Chiude il BufferedReader
 

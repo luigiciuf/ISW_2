@@ -26,9 +26,8 @@ public class ConvertCSV2Arff {
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        // qui andava il print rimosso, per code smell, per scegliere il dataset da convertire
         // Richiesta all'utente di inserire la scelta del dataset
-        System.out.println("Choose the dataset to convert (BOOKKEEPER or ZOOKEEPER): ");
         String datasetChoice = scanner.nextLine().toUpperCase(); // Leggi l'input e convertilo in maiuscolo
 
         String csvPath;

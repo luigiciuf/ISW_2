@@ -21,7 +21,7 @@ public class Utilities {
      * @param subItem La stringa da cercare.
      * @return true se la stringa `subItem` è trovata nella `source`, altrimenti false.
      */
-    public static boolean IsContain(String source, String subItem){
+    public static boolean isContain(String source, String subItem){
         // Analizing exact matching for strings
         String pattern = "\\b"+subItem+"\\b";
         Pattern p=Pattern.compile(pattern);
@@ -34,7 +34,7 @@ public class Utilities {
      * @return La data corrispondente all'intero dato.
      * @throws ParseException Se il formato della data non è valido.
      */
-    public static Date IntToDate(int d) throws ParseException {
+    public static Date intToDate(int d) throws ParseException {
         SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
         return originalFormat.parse(String.valueOf(d));
     }

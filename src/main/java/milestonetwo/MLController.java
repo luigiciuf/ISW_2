@@ -2,7 +2,7 @@ package milestonetwo;
 
 
 import utils.Parameters;
-import modelML.EvaluationML;
+import modelml.EvaluationML;
 import weka.classifiers.Classifier;
 import weka.classifiers.CostMatrix;
 import weka.classifiers.bayes.NaiveBayes;
@@ -10,7 +10,7 @@ import weka.classifiers.lazy.IBk;
 import weka.classifiers.meta.CostSensitiveClassifier;
 import weka.classifiers.trees.RandomForest;
 import weka.core.converters.ConverterUtils.DataSource;
-import modelML.ProfileML;
+import modelml.ProfileML;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,15 +29,13 @@ public class MLController {
     public static final String proj = Parameters.PROJECT2;
     private static final Logger LOGGER = Logger.getLogger("Analyzer");
     private static String nPofB20 = null;
+    private static String pathdelimiter = "/";
 
 
     public static void main(String[] args) throws Exception{
         //load dataset
         String projPath = System.getProperty("user.dir");
-        String datasetPath = projPath + "/" + proj + "dataset.arff";
-
-        System.out.println("Loading dataset from: " + datasetPath);
-
+        String datasetPath = projPath + pathdelimiter + proj + "dataset.arff";
         DataSource source = new DataSource(datasetPath);
         Instances dataset = source.getDataSet();
         dataset.deleteStringAttributes();

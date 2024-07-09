@@ -1,4 +1,4 @@
-package modelML;
+package modelml;
 
 /**
  * Questa classe contiene enumerazioni per classificatori, metodi di selezione delle caratteristiche,

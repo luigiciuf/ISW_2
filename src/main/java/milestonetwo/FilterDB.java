@@ -1,6 +1,6 @@
 package milestonetwo;
 
-import modelML.ProfileML;
+import modelml.ProfileML;
 import weka.attributeSelection.AttributeSelection;
 import weka.attributeSelection.BestFirst;
 import weka.attributeSelection.CfsSubsetEval;

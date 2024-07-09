@@ -1,9 +1,9 @@
-package modelML;
+package modelml;
 import weka.classifiers.Evaluation;
-import modelML.ProfileML.CostSensitivity;
-import modelML.ProfileML.SamplingMethod;
-import modelML.ProfileML.FeatureSelection;
-import modelML.ProfileML.Classifier;
+import modelml.ProfileML.CostSensitivity;
+import modelml.ProfileML.SamplingMethod;
+import modelml.ProfileML.FeatureSelection;
+import modelml.ProfileML.Classifier;
 public class EvaluationML {
     // Variabili di istanza per immagazzinare la valutazione e le configurazioni del modello
     Evaluation eval; // Oggetto Evaluation per la valutazione del modello

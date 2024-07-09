@@ -6,11 +6,11 @@ public class Instance {
 
     private String name;
     private Version version;
-    private Date dateCreation;
+    private Date datecreation;
     private int size;
-    private int locTouched;
-    private int NR;
-    private int NFix;
+    private int loctouched;
+    private int nr;
+    private int nFix;
     private int maxLocTouched;
     private int churn;
     private int maxChurn;
@@ -23,12 +23,12 @@ public class Instance {
         super();
         this.name=c.getName();
         this.version=c.getVersion();
-        this.dateCreation=c.getDateCreation();
+        this.datecreation =c.getDatecreation();
         this.size = c.getSize();
-        this.locTouched = c.getLocTouched();
+        this.loctouched = c.getLoctouched();
         this.age = c.getAge();
-        NR=c.getNR();
-        NFix=c.getNFix();
+        nr =c.getNr();
+        nFix =c.getnFix();
         this.maxLocTouched=c.getMaxLocTouched();
         this.churn=c.getChurn();
         this.maxChurn = c.getMaxChurn();
@@ -40,14 +40,14 @@ public class Instance {
     public int getAge() { return age;
     }
 
-    public Instance(String name, Version version,Date dateCreation){
+    public Instance(String name, Version version,Date datecreation){
         this.name=name;
         this.version=version;
-        this.dateCreation=dateCreation;
+        this.datecreation = datecreation;
         this.size=0;
-        this.locTouched= 0;
-        this.NR=0;
-        this.NFix=0;
+        this.loctouched = 0;
+        this.nr =0;
+        this.nFix =0;
         this.maxLocTouched=0;
         this.churn=0;
         this.maxChurn=0;
@@ -66,7 +66,7 @@ public class Instance {
         if (added > maxLocAdded)
             maxLocAdded = added;
 
-        locTouched += added + deleted;
+        loctouched += added + deleted;
 
         int ch = added - deleted;
         this.churn += ch;
@@ -76,11 +76,11 @@ public class Instance {
     }
 
     public void updateInstanceMeta(boolean fixCommit) {
-        NR++;
+        nr++;
 
-        if(fixCommit) NFix++;
+        if(fixCommit) nFix++;
 
-        this.avgChurn = churn / NR;
+        this.avgChurn = churn / nr;
     }
 
 
@@ -109,8 +109,8 @@ public class Instance {
         this.version = version;
     }
 
-    public Date getDateCreation() {
-        return dateCreation;
+    public Date getDatecreation() {
+        return datecreation;
     }
 
 
@@ -119,18 +119,18 @@ public class Instance {
     }
 
 
-    public int getLocTouched() {
-        return locTouched;
+    public int getLoctouched() {
+        return loctouched;
     }
 
 
-    public int getNR() {
-        return NR;
+    public int getNr() {
+        return nr;
     }
 
 
-    public int getNFix() {
-        return NFix;
+    public int getnFix() {
+        return nFix;
     }
 
 
