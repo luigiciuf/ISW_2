@@ -36,11 +36,11 @@ public class ConvertCSV2Arff {
 
         String csvPath;
         switch (datasetChoice) {
-            case "BOOKKEEPER":
+            case BOOKKEEPER_DATASET:
                 // Path del file CSV per il dataset BOOKKEEPER
                 csvPath = getPathForDataset(BOOKKEEPER_DATASET);
                 break;
-            case "ZOOKEEPER":
+            case ZOOKEEPER_DATASET:
                 // Path del file CSV per il dataset ZOOKEEPER
                 csvPath = getPathForDataset(ZOOKEEPER_DATASET);
                 break;
@@ -65,9 +65,9 @@ public class ConvertCSV2Arff {
     private static String getPathForDataset(String dataset) {
         switch (dataset) {
             case BOOKKEEPER_DATASET:
-                return BASE_PATH + "BOOKKEEPER_filter.csv";
+                    return Parameters.BASE_PATH + "BOOKKEEPER_filter.csv";
             case ZOOKEEPER_DATASET:
-                return BASE_PATH + "ZOOKEEPER_filter.csv";
+                return Parameters.BASE_PATH + "ZOOKEEPER_filter.csv";
             default:
                 throw new IllegalArgumentException("Dataset non supportato: " + dataset);
         }
