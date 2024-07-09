@@ -61,7 +61,7 @@ public class GetMetrics {
                     t.increaseAge();
                 }
             }
-            manageFiles(commit,prevCommit,temp,mapTemp,version,author,fixCommit);
+            manageFiles(commit,prevCommit,temp,mapTemp,version,fixCommit);
             for (String file: commit.getClassesTouched()){
                 inst= temp.get(mapTemp.get(file));
             }
@@ -77,12 +77,11 @@ public class GetMetrics {
      * @param temp La lista temporanea di istanze.
      * @param mapTemp Mappa temporanea per associazioni tra nomi di file e indici.
      * @param version La versione corrente.
-     * @param author L'autore del commit.
      * @param fixCommit Se il commit è un fix commit.
      * @throws IOException Se si verifica un errore di I/O.
      */
-    private void manageFiles(Commit commit, RevCommit prevCommit, ArrayList<Instance> temp, Map<String, Integer> mapTemp, Version version, String author, boolean fixCommit) throws IOException{
-        Instance inst =null;
+    private void manageFiles(Commit commit, RevCommit prevCommit, ArrayList<Instance> temp, Map<String, Integer> mapTemp, Version version,boolean fixCommit) throws IOException{
+        Instance inst;
         List<DiffEntry> listDe = diff(commit.getRev(), prevCommit);
         for(String file : commit.getClasses()){
             List<Edit> edits= getEdits(listDe,file);
@@ -112,7 +111,7 @@ public class GetMetrics {
      * @throws IOException Se si verifica un errore di I/O.
      */
     private List<DiffEntry> diff(RevCommit newCommit, RevCommit oldCommit) throws IOException {
-        List<DiffEntry> lstDe = null;
+        List<DiffEntry> lstDe;
         DiffFormatter df = new DiffFormatter(new ByteArrayOutputStream());
         df.setRepository(git.getRepository());
         if (oldCommit != null) {
