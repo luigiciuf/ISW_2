@@ -39,7 +39,7 @@ public class RetrieveCommits {
             String author= pi.getName();
             Date creationTime= pi.getWhen();
             //prendiamo la versione
-            Version version= RetrieveVersions.FindVersion(creationTime, versions);
+            Version version= RetrieveVersions.findVersion(creationTime, versions);
             // escludo i commit che non appartengono a nessuna versione, e continuo
             if(version == null) continue;
 

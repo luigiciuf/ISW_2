@@ -50,7 +50,7 @@ public class RetrieveVersions {
      * @throws IOException Se si verificano problemi di I/O.
      * @throws JSONException Se si verificano problemi di parsing JSON.
      */
-    public static void GetRealeaseInfo(String projName) throws IOException, JSONException {
+    public static void getrealeaseinfo(String projName) throws IOException, JSONException {
         // Inizializza la lista delle release
         releases = new ArrayList<>();
 
@@ -138,7 +138,7 @@ public class RetrieveVersions {
      * @throws IOException Se si verificano problemi di I/O.
      * @throws JSONException Se si verificano problemi di parsing JSON.
      */
-    public static List<Version> GetVersions(String pathVersion) throws IOException, JSONException {
+    public static List<Version> getVersions(String pathVersion) throws IOException, JSONException {
         // Crea un pattern per dividere le righe
         Pattern pattern = Pattern.compile(",");
 
@@ -176,7 +176,7 @@ public class RetrieveVersions {
      * @param allVersions La lista di tutte le versioni.
      * @return La versione che corrisponde alla data, o null se non trovata.
      */
-    public static Version FindVersion(Date date, List<Version> allVersions) {
+    public static Version findVersion(Date date, List<Version> allVersions) {
         // Cerca la prima versione che non è precedente alla data
         for (Version v : allVersions) {
             if (!v.isBefore(date)) {

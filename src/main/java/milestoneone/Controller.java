@@ -83,8 +83,8 @@ public class Controller {
         LOGGER.info(output);
 
         // Recupera informazioni sulle versioni
-        RetrieveVersions.GetRealeaseInfo(projName);
-        versions = RetrieveVersions.GetVersions(projName + "VersionInfo.csv");
+        RetrieveVersions.getrealeaseinfo(projName);
+        versions = RetrieveVersions.getVersions(projName + "VersionInfo.csv");
         int size = versions.size();
         String msg = "Versions: " + size;
         if (size != -1) LOGGER.info(msg);

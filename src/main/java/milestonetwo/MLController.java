@@ -28,7 +28,7 @@ public class MLController {
     }
     public static final String proj = Parameters.PROJECT2;
     private static final Logger LOGGER = Logger.getLogger("Analyzer");
-    private static String NPofB20 = null;
+    private static String nPofB20 = null;
 
 
     public static void main(String[] args) throws Exception{
@@ -71,7 +71,7 @@ public class MLController {
                         // Execute
                         for(ProfileML.Classifier classif : ProfileML.Classifier.values()) {		// 3 Classifier: RandomForest, NaiveBayes, Ibk
                             eval = run(train, test, classif, cs);
-                            evals.add(new EvaluationML(eval, fs, smp, cs, classif,NPofB20));
+                            evals.add(new EvaluationML(eval, fs, smp, cs, classif, nPofB20));
                         }
                     }
                 }
@@ -103,12 +103,12 @@ public class MLController {
             costSensitive.buildClassifier(train);
             evaluation = new Evaluation(test, costSensitive.getCostMatrix());
             evaluation.evaluateModel(costSensitive, test);
-            NPofB20= AcumeInfo.getNPofB20(test,costSensitive);
+            nPofB20 = AcumeInfo.getNPofB20(test,costSensitive);
         } else {
             classifier.buildClassifier(train);
             evaluation = new Evaluation(test);
             evaluation.evaluateModel(classifier, test);
-            NPofB20= AcumeInfo.getNPofB20(test,classifier);
+            nPofB20 = AcumeInfo.getNPofB20(test,classifier);
         }
         return evaluation;
     }
@@ -162,7 +162,7 @@ public class MLController {
                 fn = (int) confMatr[1][0];
                 tn = (int) confMatr[1][1];
 
-                String line = String.format("%s,%d,%s,%s,%s,%s,%d,%d,%d,%d,%s,%s,%s,%s%n", Parameters.PROJECT1,
+                String line = String.format("%s,%d,%s,%s,%s,%s,%d,%d,%d,%d,%s,%s,%s,%s,%s%n", Parameters.PROJECT1,
                         trainRelease, classifier, fs, smp, cs, tp, fp, fn, tn, prec, rec, aoc, k,NPofB20);
                 fileWriter.append(line);
                 count++;

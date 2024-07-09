@@ -75,17 +75,16 @@ public class RetrieveTicketID {
                 Date created = sdf.parse(field.getString("created"));
                 JSONArray versions = field.getJSONArray("versions");
                 Version av = null;
-                if(!versions.isNull(0)) {
+                if (!versions.isNull(0)) {
                     JSONObject v = versions.getJSONObject(0);
-                    if(v.isNull("releaseDate")) {continue;}
-                    SimpleDateFormat sdfSimple = new SimpleDateFormat("yyyy-MM-dd");
-                    Date dateAv = sdfSimple.parse(v.getString("releaseDate"));
-                    av = new Version(v.getLong("id"), v.getString("name"), dateAv);
-                    av.findNumRel(allVersions);
+                    if (v.isNull("releaseDate")) {
+                        SimpleDateFormat sdfSimple = new SimpleDateFormat("yyyy-MM-dd");
+                        Date dateAv = sdfSimple.parse(v.getString("releaseDate"));
+                        av = new Version(v.getLong("id"), v.getString("name"), dateAv);
+                        av.findNumRel(allVersions);}
                 }
-
-                Version ov = RetrieveVersions.FindVersion(created, allVersions);
-                Version fv = RetrieveVersions.FindVersion(resolved, allVersions);
+                Version ov = RetrieveVersions.findVersion(created, allVersions);
+                Version fv = RetrieveVersions.findVersion(resolved, allVersions);
 
                 if(ov == null || fv == null) {
                     continue;
@@ -143,11 +142,11 @@ public class RetrieveTicketID {
         float p=0;
         for(Ticket t : tickets){
             if (!t.withoutAv()){
-                if(t.getOv().getName().contains(t.getFv().getName())) continue;;
+                if(t.getOv().getName().contains(t.getFv().getName())){;
                 avSum += t.getAv().getNumRel();
                 ovSum += t.getAv().getNumRel();
                 fvSum += t.getAv().getNumRel();
-                p= (fvSum-avSum)/ (fvSum-ovSum);
+                p= (fvSum-avSum)/ (fvSum-ovSum);}
             }
             else t.setAvWithProp(p,allVersion);
         }

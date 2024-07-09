@@ -45,11 +45,9 @@ public class GetMetrics {
         this.git = git;
         ArrayList<Instance> temp = new ArrayList<>();
         Map<String, Integer> mapTemp = new HashMap<>();
-        Instance inst = null;
         RevCommit prevCommit = null;
         Version version = versions.get(0);
         for(Commit commit : commits) {
-            String author = commit.getAuthor();
             boolean fixCommit = false;
             if(!commit.getBuggyTickets().isEmpty()) fixCommit = true;
             if(!version.getName().equals(commit.getVersion().getName())) {
@@ -62,9 +60,6 @@ public class GetMetrics {
                 }
             }
             manageFiles(commit,prevCommit,temp,mapTemp,version,fixCommit);
-            for (String file: commit.getClassesTouched()){
-                inst= temp.get(mapTemp.get(file));
-            }
             prevCommit=commit.getRev();
         }
         updateInstances(mapInst,temp,mapTemp);
