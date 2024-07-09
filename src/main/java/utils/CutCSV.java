@@ -18,13 +18,10 @@ public class CutCSV {
         String dataCsvFilePath = projectName + "dataset.csv";
         String outputCsvFilePath = projectName + "_filter.csv";
 
-        // Leggi le versioni dal file delle versioni e prendi la prima metà
         Set<String> versions = new HashSet<>();
         try (BufferedReader versionsReader = new BufferedReader(new FileReader(versionsCsvFilePath))) {
             List<String> allVersions = new ArrayList<>();
             String row;
-            // Salta l'intestazione
-            versionsReader.readLine();
             while ((row = versionsReader.readLine()) != null) {
                 String[] parts = row.split(",");
                 if (parts.length > 2) {

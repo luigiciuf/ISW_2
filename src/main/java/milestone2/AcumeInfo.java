@@ -102,7 +102,7 @@ public class AcumeInfo {
 
             ProcessBuilder processBuilder = new ProcessBuilder("python", "main.py", "NPofB");
             // Imposta il percorso di lavoro del processo sulla directory "acume"
-            processBuilder.directory(new File("C:/Users/luigi/IdeaProjects/ISW_2/acume/"));
+            processBuilder.directory(directory);
             // Redirect error stream to ensure we capture any errors from the script
             processBuilder.redirectErrorStream(true);
 
