@@ -11,6 +11,10 @@ public class ConvertCSV2Arff {
     private ConvertCSV2Arff() {
         // Costruttore privato
     }
+    private static final String BOOKKEEPER_DATASET = "BOOKKEEPER";
+    private static final String ZOOKEEPER_DATASET = "ZOOKEEPER";
+    private static final String BASE_PATH = "C:/Users/luigi/IdeaProjects/ISW_2/";
+
     public static void convertCsvToArff(String csvPath, String arffPath) throws Exception {
         // Load CSV
         CSVLoader csvLoader = new CSVLoader();
@@ -34,11 +38,11 @@ public class ConvertCSV2Arff {
         switch (datasetChoice) {
             case "BOOKKEEPER":
                 // Path del file CSV per il dataset BOOKKEEPER
-                csvPath = getPathForDataset("BOOKKEEPER");
+                csvPath = getPathForDataset(BOOKKEEPER_DATASET);
                 break;
             case "ZOOKEEPER":
                 // Path del file CSV per il dataset ZOOKEEPER
-                csvPath = getPathForDataset("ZOOKEEPER");
+                csvPath = getPathForDataset(ZOOKEEPER_DATASET);
                 break;
             default:
                 return;
@@ -59,12 +63,11 @@ public class ConvertCSV2Arff {
     }
     // Funzione per ottenere il percorso del file CSV in base al dataset
     private static String getPathForDataset(String dataset) {
-        String basePath = "C:/Users/luigi/IdeaProjects/ISW_2/";
         switch (dataset) {
-            case "BOOKKEEPER":
-                return basePath + "BOOKKEEPER_filter.csv";
-            case "ZOOKEEPER":
-                return basePath + "ZOOKEEPER_filter.csv";
+            case BOOKKEEPER_DATASET:
+                return BASE_PATH + "BOOKKEEPER_filter.csv";
+            case ZOOKEEPER_DATASET:
+                return BASE_PATH + "ZOOKEEPER_filter.csv";
             default:
                 throw new IllegalArgumentException("Dataset non supportato: " + dataset);
         }
