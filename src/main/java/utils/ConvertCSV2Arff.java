@@ -50,7 +50,7 @@ public class ConvertCSV2Arff {
         // Nome del file ARFF basato sulla scelta del dataset
         String arffFileName = datasetChoice + "dataset.arff";
         // Path completo del file ARFF di output
-        String arffPath = Parameters.BASE_PATH + arffFileName;
+        String arffPath = Parameters.getBasePath() + arffFileName;
 
         try {
                 convertCsvToArff(csvPath, arffPath); // Chiama il metodo per convertire il CSV in ARFF
@@ -64,9 +64,9 @@ public class ConvertCSV2Arff {
     private static String getPathForDataset(String dataset) {
         switch (dataset) {
             case BOOKKEEPER_DATASET:
-                    return Parameters.BASE_PATH + "BOOKKEEPER_filter.csv";
+                    return Parameters.getBasePath() + "BOOKKEEPER_filter.csv";
             case ZOOKEEPER_DATASET:
-                return Parameters.BASE_PATH + "ZOOKEEPER_filter.csv";
+                return Parameters.getBasePath() + "ZOOKEEPER_filter.csv";
             default:
                 throw new IllegalArgumentException("Dataset non supportato: " + dataset);
         }

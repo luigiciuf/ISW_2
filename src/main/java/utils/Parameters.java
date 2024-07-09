@@ -16,7 +16,13 @@ public class Parameters {
     public static final String DATASET = "dataset.csv";
     public static final String DATASET_ANALISYS = "analisys.csv";
     public static final String ACUME_DRECTORY="C:/Users/luigi/IdeaProjects/ISW_2/acume/";
-    public static final String BASE_PATH="C:/Users/luigi/IdeaProjects/ISW_2/";
+
+    // Metodo per ottenere il percorso di base personalizzabile
+    public static String getBasePath() {
+        // Ottieni il percorso dal sistema o usa un valore di default
+        return System.getProperty("custom.base.path", "C:/Users/luigi/IdeaProjects/ISW_2/");
+    }
+
 
     public static String toUrl(String project) {
         return String.format("https://github.com/apache/%s.git", project);
