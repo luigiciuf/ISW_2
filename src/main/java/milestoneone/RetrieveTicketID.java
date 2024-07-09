@@ -142,7 +142,7 @@ public class RetrieveTicketID {
         float p=0;
         for(Ticket t : tickets){
             if (!t.withoutAv()){
-                if(t.getOv().getName().contains(t.getFv().getName())){;
+                if(t.getOv().getName().contains(t.getFv().getName())){
                 avSum += t.getAv().getNumRel();
                 ovSum += t.getAv().getNumRel();
                 fvSum += t.getAv().getNumRel();

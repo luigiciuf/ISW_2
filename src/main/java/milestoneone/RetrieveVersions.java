@@ -18,15 +18,13 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
 import utils.JsonUtils;
 import model.Version;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static java.util.stream.Collectors.toList;
+
 
 
 // Classe responsabile di recuperare e gestire informazioni sulle versioni
@@ -156,7 +154,7 @@ public class RetrieveVersions {
                 e.printStackTrace(); // Gestione dell'eccezione
             }
             return new Version(Long.parseLong(x[1]), x[2], d); // Crea un oggetto Version
-        }).collect(toList());
+        }).toList();
 
         in.close(); // Chiude il BufferedReader
 

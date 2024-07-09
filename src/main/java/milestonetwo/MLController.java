@@ -26,7 +26,7 @@ public class MLController {
     private MLController(){
         super();
     }
-    public static final String proj = Parameters.PROJECT2;
+    public static final String PROJ = Parameters.PROJECT2;
     private static final Logger LOGGER = Logger.getLogger("Analyzer");
     private static String nPofB20 = null;
     private static String pathdelimiter = "/";
@@ -35,7 +35,7 @@ public class MLController {
     public static void main(String[] args) throws Exception{
         //load dataset
         String projPath = System.getProperty("user.dir");
-        String datasetPath = projPath + pathdelimiter + proj + "dataset.arff";
+        String datasetPath = projPath + pathdelimiter + PROJ + "dataset.arff";
         DataSource source = new DataSource(datasetPath);
         Instances dataset = source.getDataSet();
         dataset.deleteStringAttributes();
@@ -122,7 +122,7 @@ public class MLController {
 
 
     public static void createCsv(List<EvaluationML> evals, int numVers, int numClassif) throws IOException {
-        String outname = proj + Parameters.DATASET_ANALISYS; //Name of CSV for output
+        String outname = PROJ + Parameters.DATASET_ANALISYS; //Name of CSV for output
         // Utilizza try-with-resources per garantire la chiusura automatica del FileWriter
         try (FileWriter fileWriter = new FileWriter(outname)) {
             fileWriter.append("Dataset,#TrainRelease,Classifier,FeatSel,Sampling,CostSens,TP,FP,FN,TN,Precision,Recall,AUC,Kappa,NPofB20\n");
@@ -148,7 +148,7 @@ public class MLController {
                 String rec = String.format(Locale.US, "%.3f", e.recall(1));
                 String aoc = String.format(Locale.US, "%.3f", e.areaUnderROC(1));
                 String k = String.format(Locale.US, "%.3f", e.kappa());
-                String NPofB20= eval.getnPofB20().length() > 5 ? eval.getnPofB20().substring(0, 5) : eval.getnPofB20();
+                String nPofB20= eval.getnPofB20().length() > 5 ? eval.getnPofB20().substring(0, 5) : eval.getnPofB20();
                 classifier = eval.getClassif().toString().toLowerCase().replace("_", " ");
                 fs = eval.getFs().toString().toLowerCase().replace("_", " ");
                 smp = eval.getSmp().toString().toLowerCase().replace("_", " ");
@@ -160,7 +160,7 @@ public class MLController {
                 tn = (int) confMatr[1][1];
 
                 String line = String.format("%s,%d,%s,%s,%s,%s,%d,%d,%d,%d,%s,%s,%s,%s,%s%n", Parameters.PROJECT1,
-                        trainRelease, classifier, fs, smp, cs, tp, fp, fn, tn, prec, rec, aoc, k,NPofB20);
+                        trainRelease, classifier, fs, smp, cs, tp, fp, fn, tn, prec, rec, aoc, k,nPofB20);
                 fileWriter.append(line);
                 count++;
             }

@@ -34,15 +34,13 @@ public class ConvertCSV2Arff {
         switch (datasetChoice) {
             case "BOOKKEEPER":
                 // Path del file CSV per il dataset BOOKKEEPER
-                csvPath = "C:/Users/luigi/IdeaProjects/ISW_2/BOOKKEEPER_filter.csv";
+                csvPath = getPathForDataset("BOOKKEEPER");
                 break;
             case "ZOOKEEPER":
                 // Path del file CSV per il dataset ZOOKEEPER
-                csvPath = "C:/Users/luigi/IdeaProjects/ISW_2/ZOOKEEPER_filter.csv";
+                csvPath = getPathForDataset("ZOOKEEPER");
                 break;
             default:
-                // Se la scelta del dataset non è valida, stampa un messaggio di errore e termina il programma
-                System.err.println("Invalid dataset choice.");
                 return;
         }
         // Nome del file ARFF basato sulla scelta del dataset
@@ -52,13 +50,23 @@ public class ConvertCSV2Arff {
 
         try {
             convertCsvToArff(csvPath, arffPath); // Chiama il metodo per convertire il CSV in ARFF
-            System.out.println("Conversion completed successfully.");
         } catch (Exception e) {
-            System.err.println("An error occurred during conversion: " + e.getMessage());
         } finally {
             // Chiudi lo scanner alla fine per evitare memory leak
             scanner.close();
         }
 
+    }
+    // Funzione per ottenere il percorso del file CSV in base al dataset
+    private static String getPathForDataset(String dataset) {
+        String basePath = "C:/Users/luigi/IdeaProjects/ISW_2/";
+        switch (dataset) {
+            case "BOOKKEEPER":
+                return basePath + "BOOKKEEPER_filter.csv";
+            case "ZOOKEEPER":
+                return basePath + "ZOOKEEPER_filter.csv";
+            default:
+                throw new IllegalArgumentException("Dataset non supportato: " + dataset);
+        }
     }
 }
