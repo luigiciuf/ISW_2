@@ -1,4 +1,4 @@
-package milestone1;
+package milestoneone;
 
 import utils.JsonUtils;
 import model.Ticket;

@@ -1,4 +1,4 @@
-package milestone2;
+package milestonetwo;
 
 import modelML.ProfileML;
 import weka.attributeSelection.AttributeSelection;

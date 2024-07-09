@@ -1,4 +1,4 @@
-package milestone2;
+package milestonetwo;
 import com.opencsv.exceptions.CsvValidationException;
 import model.Acume;
 import weka.classifiers.Classifier;

@@ -1,4 +1,4 @@
-package milestone1;
+package milestoneone;
 
 import utils.Utilities;
 import model.Commit;

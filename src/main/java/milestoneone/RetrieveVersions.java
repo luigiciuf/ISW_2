@@ -1,4 +1,4 @@
-package milestone1;
+package milestoneone;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

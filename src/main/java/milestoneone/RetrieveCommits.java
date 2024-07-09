@@ -1,4 +1,4 @@
-package milestone1;
+package milestoneone;
 
 import model.Commit;
 import model.Ticket;

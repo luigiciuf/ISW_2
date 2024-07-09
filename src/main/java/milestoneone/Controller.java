@@ -1,4 +1,4 @@
-package milestone1;
+package milestoneone;
 
 import utils.Parameters;
 import model.Commit;
@@ -22,10 +22,10 @@ import java.util.logging.Logger;
 public class Controller {
     // Logger per registrare messaggi di log
     private static final Logger LOGGER = Logger.getLogger("analyzer");
-    private RetrieveCommits RC;
-    private RetrieveTicketID RT;
-    private GetMetrics GM;
-    private GetBuggyClass GBC;
+    private RetrieveCommits retrieveCommits;
+    private RetrieveTicketID retrieveTicketID;
+    private GetMetrics getMetrics;
+    private GetBuggyClass getBuggyClass;
     private Git git;
     String projName;
     String path;
@@ -35,10 +35,10 @@ public class Controller {
      */
     public Controller(String projName) {
         this.projName = projName;
-        RC = new RetrieveCommits();
-        RT = new RetrieveTicketID(projName);
-        GM = new GetMetrics();
-        GBC = new GetBuggyClass();
+        retrieveCommits = new RetrieveCommits();
+        retrieveTicketID = new RetrieveTicketID(projName);
+        getMetrics = new GetMetrics();
+        getBuggyClass = new GetBuggyClass();
     }
     /**
      * Configura il repository Git.
@@ -122,7 +122,7 @@ public class Controller {
      * @throws ParseException Se c'è un errore nel parsing delle date.
      */
     public List<Ticket> getTickets(List<Version> versions) throws JSONException, IOException, ParseException {
-        return RT.getTickets(versions);
+        return retrieveTicketID.getTickets(versions);
     }
     /**
      * Ottieni i commit associati a una lista di ticket e versioni.
@@ -134,7 +134,7 @@ public class Controller {
      * @throws GitAPIException Se c'è un errore con Git.
      */
     public List<Commit> getCommits(List<Ticket> tickets, List<Version> versions) throws JSONException, IOException, GitAPIException {
-        return RC.getCommits(git, tickets, versions);
+        return retrieveCommits.getCommits(git, tickets, versions);
     }
     /**
      * Ottieni le istanze a partire da commit e versioni.
@@ -145,7 +145,7 @@ public class Controller {
      * @throws IOException Se c'è un errore di I/O.
      */
     public List<Instance> getInstances(List<Commit> commits, List<Version> versions, Map<String, List<Integer>> mapInst) throws IOException {
-        return GM.getInstances(git, commits, versions, mapInst);
+        return getMetrics.getInstances(git, commits, versions, mapInst);
     }
     /**
      * Imposta il bugginess per una lista di istanze.
@@ -154,7 +154,7 @@ public class Controller {
      * @param mapInst Mappa per tracciare le istanze.
      */
     public void setBugginess(List<Instance> instances, List<Commit> commits, Map<String, List<Integer>> mapInst) {
-        GBC.setBugginess(instances, commits, mapInst);
+        getBuggyClass.setBugginess(instances, commits, mapInst);
     }
     /**
      * Genera un dataset a partire da una lista di istanze e lo scrive su un file CSV.
