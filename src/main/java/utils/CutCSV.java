@@ -69,6 +69,6 @@ public class CutCSV {
 
     public static void main(String[] args) {
         cutCsv("ZOOKEEPER");
-        //cutCsv("BOOKKEEPER");
+        //modificare il nome del progetto che si vuole tagliare
     }
 }
