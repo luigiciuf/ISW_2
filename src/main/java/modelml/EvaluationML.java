@@ -5,14 +5,12 @@ import modelml.ProfileML.SamplingMethod;
 import modelml.ProfileML.FeatureSelection;
 import modelml.ProfileML.Classifier;
 public class EvaluationML {
-    // Variabili di istanza per immagazzinare la valutazione e le configurazioni del modello
-    Evaluation eval; // Oggetto Evaluation per la valutazione del modello
-    FeatureSelection fs; // Metodo di selezione delle caratteristiche (Feature Selection)
-    SamplingMethod smp; // Metodo di campionamento (Sampling Method)
-    CostSensitivity cs; // Sensibilità ai costi (Cost Sensitivity)
-    Classifier classif; // Tipo di classificatore (Classifier)
+    Evaluation eval;
+    FeatureSelection fs;
+    SamplingMethod smp;
+    CostSensitivity cs;
+    Classifier classif;
     private String nPofB20;
-    // Costruttore della classe che inizializza tutte le variabili di istanza
     /**
      * Costruttore per creare un oggetto Evalutation con le configurazioni specificate.
      * @param eval Oggetto Evaluation per la valutazione del modello.
@@ -22,22 +20,21 @@ public class EvaluationML {
      * @param classif Tipo di classificatore (Classifier).
      */
     public EvaluationML(Evaluation eval,FeatureSelection fs, SamplingMethod smp, CostSensitivity cs, Classifier classif, String nPofB20){
-        super(); // Chiama il costruttore della superclasse (Object)
-        this.eval = eval; // Assegna il parametro eval alla variabile di istanza eval
-        this.fs = fs; // Assegna il parametro fs alla variabile di istanza fs
-        this.smp = smp; // Assegna il parametro smp alla variabile di istanza smp
-        this.cs = cs; // Assegna il parametro cs alla variabile di istanza cs
-        this.classif = classif; // Assegna il parametro classif alla variabile di istanza classif
+        super();
+        this.eval = eval;
+        this.fs = fs;
+        this.smp = smp;
+        this.cs = cs;
+        this.classif = classif;
         this.nPofB20=nPofB20;
     }
 
-    // Metodi getter per accedere alle variabili di istanza
     /**
      * Restituisce l'oggetto Evaluation.
      * @return eval Oggetto Evaluation per la valutazione del modello.
      */
     public Evaluation getEval() {
-        return eval; // Restituisce l'oggetto Evaluation
+        return eval;
     }
 
     /**
@@ -45,7 +42,7 @@ public class EvaluationML {
      * @return fs Metodo di selezione delle caratteristiche (Feature Selection).
      */
     public FeatureSelection getFs() {
-        return fs; // Restituisce il metodo di selezione delle caratteristiche
+        return fs;
     }
 
     /**
@@ -53,7 +50,7 @@ public class EvaluationML {
      * @return smp Metodo di campionamento (Sampling Method).
      */
     public SamplingMethod getSmp() {
-        return smp; // Restituisce il metodo di campionamento
+        return smp;
     }
 
     /**
@@ -61,7 +58,7 @@ public class EvaluationML {
      * @return cs Sensibilità ai costi (Cost Sensitivity).
      */
     public CostSensitivity getCs() {
-        return cs; // Restituisce la sensibilità ai costi
+        return cs;
     }
 
     /**
@@ -69,7 +66,7 @@ public class EvaluationML {
      * @return classif Tipo di classificatore (Classifier).
      */
     public Classifier getClassif() {
-        return classif; // Restituisce il tipo di classificatore
+        return classif;
     }
 
     public String getnPofB20() {

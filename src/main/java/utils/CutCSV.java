@@ -14,6 +14,10 @@ import java.util.logging.Logger;
 public class CutCSV {
     private static final Logger LOGGER = Logger.getLogger(CutCSV.class.getName());
 
+    /**
+     * Taglia il file CSV in base alle versioni specificate.
+     * @param projectName Il nome del progetto utilizzato per generare i percorsi dei file.
+     */
     public static void cutCsv(String projectName) {
         // Percorsi dei file basati sul nome del progetto
         String versionsCsvFilePath = projectName + "VersionInfo.csv";
@@ -64,7 +68,7 @@ public class CutCSV {
     }
 
     public static void main(String[] args) {
-        // Esempio di chiamata alla funzione     cutCsv
         cutCsv("ZOOKEEPER");
+        //cutCsv("BOOKKEEPER");
     }
 }

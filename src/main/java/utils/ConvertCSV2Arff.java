@@ -8,13 +8,19 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ConvertCSV2Arff {
-    // Costruttore privato per nascondere quello pubblico implicito
+
     private ConvertCSV2Arff() {
-        // Costruttore privato
+
     }
     private static final String BOOKKEEPER_DATASET = "BOOKKEEPER";
     private static final String ZOOKEEPER_DATASET = "ZOOKEEPER";
 
+    /**
+     * Converte un file CSV in un file ARFF.
+     * @param csvPath Il percorso del file CSV da convertire.
+     * @param arffPath Il percorso del file ARFF di destinazione.
+     * @throws IOException Se si verifica un errore durante la lettura o la scrittura dei file.
+     */
     public static void convertCsvToArff(String csvPath, String arffPath) throws IOException {
         // Load CSV
         CSVLoader csvLoader = new CSVLoader();
@@ -32,35 +38,33 @@ public class ConvertCSV2Arff {
         Scanner scanner = new Scanner(System.in);
         // qui andava il print rimosso, per code smell, per scegliere il dataset da convertire
         // Richiesta all'utente di inserire la scelta del dataset
-        String datasetChoice = scanner.nextLine().toUpperCase(); // Leggi l'input e convertilo in maiuscolo
-
+        String datasetChoice = scanner.nextLine().toUpperCase();
         String csvPath;
         switch (datasetChoice) {
             case BOOKKEEPER_DATASET:
-                // Path del file CSV per il dataset BOOKKEEPER
                 csvPath = getPathForDataset(BOOKKEEPER_DATASET);
                 break;
             case ZOOKEEPER_DATASET:
-                // Path del file CSV per il dataset ZOOKEEPER
                 csvPath = getPathForDataset(ZOOKEEPER_DATASET);
                 break;
             default:
                 return;
         }
-        // Nome del file ARFF basato sulla scelta del dataset
         String arffFileName = datasetChoice + "dataset.arff";
-        // Path completo del file ARFF di output
         String arffPath = Parameters.getBasePath() + arffFileName;
 
         try {
-                convertCsvToArff(csvPath, arffPath); // Chiama il metodo per convertire il CSV in ARFF
+                convertCsvToArff(csvPath, arffPath);
         } finally {
-            // Chiudi lo scanner alla fine per evitare memory leak
             scanner.close();
         }
 
     }
-    // Funzione per ottenere il percorso del file CSV in base al dataset
+    /**
+     * Funzione per ottenere il percorso del file CSV in base al dataset.
+     * @param dataset Il nome del dataset.
+     * @return Il percorso del file CSV.
+     */
     private static String getPathForDataset(String dataset) {
         switch (dataset) {
             case BOOKKEEPER_DATASET:

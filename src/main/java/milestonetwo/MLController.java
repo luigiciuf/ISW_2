@@ -26,7 +26,7 @@ public class MLController {
     private MLController(){
         super();
     }
-    public static final String PROJ = Parameters.PROJECT2;
+    public static final String PROJ = Parameters.PROJECT1;
     private static final Logger LOGGER = Logger.getLogger("Analyzer");
     private static String nPofB20 = null;
     private static String pathdelimiter = "/";
@@ -39,12 +39,13 @@ public class MLController {
         DataSource source = new DataSource(datasetPath);
         Instances dataset = source.getDataSet();
         dataset.deleteStringAttributes();
+        // Lista per memorizzare le valutazioni
         List<EvaluationML> evals = new ArrayList<>();
         int numAttr = dataset.numAttributes();
         int numVers = dataset.attribute(0).numValues();
         FilterDB filter = new FilterDB();
         Evaluation eval;
-
+        // Ciclo su tutte le combinazioni di Feature Selection, Sampling e Cost Sensitivity
         for (ProfileML.FeatureSelection fs: ProfileML.FeatureSelection.values()) {  			// Feature Selection
             for (ProfileML.SamplingMethod smp: ProfileML.SamplingMethod.values()) {		// Sampling
                 for (ProfileML.CostSensitivity cs: ProfileML.CostSensitivity.values()) {		// Cost Sensitive

@@ -28,7 +28,7 @@ import org.json.JSONObject;
 
 
 // Classe responsabile di recuperare e gestire informazioni sulle versioni
-public class RetrieveVersions {
+public class    RetrieveVersions {
     // Costruttore privato per impedire istanziazioni
     private RetrieveVersions() {
         super(); // Chiamata al costruttore della superclasse
