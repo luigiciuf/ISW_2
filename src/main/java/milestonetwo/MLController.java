@@ -79,7 +79,15 @@ public class MLController {
         createCsv(evals, numVers, 3);
     }
 
-
+    /**
+     * Esegue la valutazione del classificatore.
+     * @param train Il set di addestramento.
+     * @param test Il set di test.
+     * @param classif Il classificatore da utilizzare.
+     * @param cs Il tipo di sensibilità ai costi.
+     * @return La valutazione del classificatore.
+     * @throws Exception Se si verifica un errore durante l'esecuzione.
+     */
     public static Evaluation run(Instances train, Instances test, ProfileML.Classifier  classif, ProfileML.CostSensitivity cs) throws Exception {
         Classifier classifier;
         if (classif.equals(ProfileML.Classifier.NAIVE_BAYES)) {
@@ -110,7 +118,12 @@ public class MLController {
         }
         return evaluation;
     }
-
+    /**
+     * Crea una matrice dei costi.
+     * @param falseNegativeWeigth Il peso dei falsi negativi.
+     * @param falsePositiveWeigth Il peso dei falsi positivi.
+     * @return La matrice dei costi.
+     */
     public static CostMatrix getCostMatrix(double falseNegativeWeigth, double falsePositiveWeigth) {
         CostMatrix costMatrix = new CostMatrix(2);
         costMatrix.setCell(0, 0, 0.0);
@@ -120,8 +133,13 @@ public class MLController {
         return costMatrix;
     }
 
-
-
+    /**
+     * Crea un file CSV con i risultati delle valutazioni.
+     * @param evals La lista delle valutazioni.
+     * @param numVers Il numero di versioni del dataset.
+     * @param numClassif Il numero di classificatori.
+     * @throws IOException Se si verifica un errore durante la scrittura del file.
+     */
     public static void createCsv(List<EvaluationML> evals, int numVers, int numClassif) throws IOException {
         String outname = PROJ + Parameters.DATASET_ANALISYS; //Name of CSV for output
         // Utilizza try-with-resources per garantire la chiusura automatica del FileWriter

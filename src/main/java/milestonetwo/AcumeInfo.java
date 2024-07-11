@@ -20,7 +20,12 @@ public class AcumeInfo {
 
 
     private AcumeInfo(){}
-
+    /**
+     * Calcola il NPofB20 per un set di test utilizzando un classificatore.
+     * @param testingSet Il set di test.
+     * @param cls Il classificatore da utilizzare.
+     * @return Il valore di NPofB20 come stringa.
+     */
     public static String getNPofB20(Instances testingSet, Classifier cls ) {
 
         String output = String.format("Calculating NPofB20%n");
@@ -63,7 +68,10 @@ public class AcumeInfo {
         return nPofB20;
     }
 
-
+    /**
+     * Scrive un file CSV con i dati di ACUME.
+     * @param acumeList La lista degli oggetti Acume.
+     */
     private static void writeAcumeCsv(List<Acume> acumeList){
         String output = String.format("Assembling CSV file for ACUME%n");
         LOGGER.info(output);
@@ -85,11 +93,18 @@ public class AcumeInfo {
         output = String.format(".csv file created!%n");
         LOGGER.info(output);
     }
-
+    /**
+     * Converte un oggetto Acume in una stringa formattata.
+     * @param acume L'oggetto Acume.
+     * @return La stringa formattata.
+     */
     private static String getString(Acume acume){
         return String.format("%s,%s,%s,%s%n",acume.getId(),(int)acume.getSize(),acume.getPredicted(),acume.getActualStringValue());
     }
-
+    /**
+     * Valuta il NPofB20 eseguendo uno script Python.
+     * @return Il valore di NPofB20 come stringa.
+     */
     private static String evaluateNPofB20() {
         String nPofB20 = null;
 
@@ -140,7 +155,10 @@ public class AcumeInfo {
         }
         return nPofB20;
     }
-
+    /**
+     * Estrae il valore di NPofB20 dal file CSV.
+     * @return Il valore di NPofB20 come stringa.
+     */
     private static String extractNPofB() {
         String csvFile = Parameters.ACUME_DRECTORY + "/EAM_NEAM_output.csv"; // Search for the output file
         try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
@@ -157,7 +175,9 @@ public class AcumeInfo {
             return null;
         }
     }
-
+    /**
+     * Elimina i file generati da ACUME.
+     */
     private static void eliminateGeneratedFiles(){
         File file1 = new File(Parameters.ACUME_DRECTORY+"Acume.csv");
         File file2 = new File(Parameters.ACUME_DRECTORY+"EAM_NEAM_output.csv");
