@@ -60,6 +60,7 @@ public class FilterDB {
                 smote.setInputFormat(train);
                 train = Filter.useFilter(train, smote);
                 break;
+            default:return;
         }
     }
 
