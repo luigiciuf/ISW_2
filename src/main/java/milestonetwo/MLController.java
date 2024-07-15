@@ -57,12 +57,11 @@ public class MLController {
                         test.deleteAttributeAt(0);
                         train.setClassIndex(numAttr - 2);
                         test.setClassIndex(numAttr - 2);
-
                         // Feature selection and sampling
                         filter.train = train;
                         filter.test = test;
-                        filter.featureSelection(fs);		// Apply feature selection
-                        filter.sampling(smp);				// Apply Sampling
+                        filter.featureSelection(fs);
+                        filter.sampling(smp);
                         train = filter.train;
                         test = filter.test;
 
@@ -78,45 +77,58 @@ public class MLController {
 
         createCsv(evals, numVers, 3);
     }
-
     /**
-     * Esegue la valutazione del classificatore.
-     * @param train Il set di addestramento.
-     * @param test Il set di test.
-     * @param classif Il classificatore da utilizzare.
-     * @param cs Il tipo di sensibilità ai costi.
-     * @return La valutazione del classificatore.
-     * @throws Exception Se si verifica un errore durante l'esecuzione.
+     * Esegue la valutazione del modello di classificazione sui set di dati di addestramento e test.
+     *
+     * @param train  Il set di dati di addestramento
+     * @param test   Il set di dati di test
+     * @param classif Il tipo di classificatore da utilizzare
+     * @param cs     Il tipo di sensibilità ai costi da applicare
+     * @return L'oggetto Evaluation che contiene i risultati della valutazione
+     * @throws Exception In caso di errori durante la costruzione del classificatore o la valutazione
      */
-    public static Evaluation run(Instances train, Instances test, ProfileML.Classifier  classif, ProfileML.CostSensitivity cs) throws Exception {
-        Classifier classifier;
-        if (classif.equals(ProfileML.Classifier.NAIVE_BAYES)) {
-            classifier = new NaiveBayes();
-        } else if (classif.equals(ProfileML.Classifier.IBK)) {
-            classifier = new IBk();
-        } else {
-            classifier = new RandomForest();
-        }
+    public static Evaluation run(Instances train, Instances test, ProfileML.Classifier classif, ProfileML.CostSensitivity cs) throws Exception {
+        Classifier classifier = getClassifier(classif);
+
+        CostSensitiveClassifier costSensitiveClassifier = new CostSensitiveClassifier();
+        CostMatrix costMatrix = getCostMatrix(10.0, 1.0);
+        costSensitiveClassifier.setClassifier(classifier);
+        costSensitiveClassifier.setCostMatrix(costMatrix);
 
         Evaluation evaluation;
-        CostSensitiveClassifier costSensitive = new CostSensitiveClassifier();
-        CostMatrix costMatrix = getCostMatrix(10.0, 1.0);
-        costSensitive.setClassifier(classifier);
-        costSensitive.setCostMatrix(costMatrix);
 
-        if (!cs.equals(ProfileML.CostSensitivity.NO_COST_SENSITIVE)) {
-            costSensitive.setMinimizeExpectedCost(cs.equals(ProfileML.CostSensitivity.SENSITIVE_THRESHOLD));
-            costSensitive.buildClassifier(train);
-            evaluation = new Evaluation(test, costSensitive.getCostMatrix());
-            evaluation.evaluateModel(costSensitive, test);
-            nPofB20 = AcumeInfo.getNPofB20(test,costSensitive);
+        if (cs != ProfileML.CostSensitivity.NO_COST_SENSITIVE) {
+            boolean minimizeExpectedCost = (cs == ProfileML.CostSensitivity.SENSITIVE_THRESHOLD);
+            costSensitiveClassifier.setMinimizeExpectedCost(minimizeExpectedCost);
+            costSensitiveClassifier.buildClassifier(train);
+            evaluation = new Evaluation(test, costSensitiveClassifier.getCostMatrix());
+            evaluation.evaluateModel(costSensitiveClassifier, test);
+            nPofB20 = AcumeInfo.getNPofB20(test, costSensitiveClassifier);
         } else {
             classifier.buildClassifier(train);
             evaluation = new Evaluation(test);
             evaluation.evaluateModel(classifier, test);
-            nPofB20 = AcumeInfo.getNPofB20(test,classifier);
+            nPofB20 = AcumeInfo.getNPofB20(test, classifier);
         }
+
         return evaluation;
+    }
+
+    /**
+     * Restituisce un classificatore in base al tipo specificato.
+     *
+     * @param classif Il tipo di classificatore
+     * @return L'oggetto Classifier corrispondente
+     */
+    private static Classifier getClassifier(ProfileML.Classifier classif) {
+        switch (classif) {
+            case NAIVE_BAYES:
+                return new NaiveBayes();
+            case IBK:
+                return new IBk();
+            default:
+                return new RandomForest();
+        }
     }
     /**
      * Crea una matrice dei costi.

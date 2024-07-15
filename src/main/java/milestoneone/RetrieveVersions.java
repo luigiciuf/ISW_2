@@ -86,12 +86,6 @@ public class    RetrieveVersions {
             }
         });
 
-        // Se ci sono meno di 6 release, esci dalla funzione
-        if (releases.size() < 6) {
-            LOGGER.warning("Il progetto ha meno di 6 release. Impossibile procedere");
-            return;
-        }
-
         // Scrive informazioni su un file CSV
         try (FileWriter fileWriter = new FileWriter(projName + "VersionInfo.csv")) {
             // Intestazione del CSV

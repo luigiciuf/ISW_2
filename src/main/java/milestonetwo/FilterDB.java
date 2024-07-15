@@ -38,30 +38,34 @@ public class FilterDB {
             test = Filter.useFilter(test, removeFilter);
         }
     }
-
     public void sampling(ProfileML.SamplingMethod smp) throws Exception {
-        if (smp.equals(ProfileML.SamplingMethod.OVERSAMPLING)) {
-            Resample resample = new Resample();
-            resample.setInputFormat(train);
-            DecimalFormat df = new DecimalFormat("#.##");
-            resample.setOptions(Utils.splitOptions(String.format("%s %s", "-B 1.0 -Z", df.format(computerMajorityClassPercentage()))));
-            train = Filter.useFilter(train, resample);
-        } else if (smp.equals(ProfileML.SamplingMethod.UNDERSAMPLING)) {
-            SpreadSubsample underSampling = new SpreadSubsample();
-            underSampling.setInputFormat(train);
-            underSampling.setOptions(Utils.splitOptions("-M 1.0"));
-            train = Filter.useFilter(train, underSampling);
-        } else if (smp.equals(ProfileML.SamplingMethod.SMOTE)) {
-            SMOTE smote = new SMOTE();
-            smote.setInputFormat(train);
-            train = Filter.useFilter(train, smote);
+        switch (smp) {
+            case OVERSAMPLING:
+                Resample resample = new Resample();
+                resample.setInputFormat(train);
+                DecimalFormat df = new DecimalFormat("#.##");
+                resample.setOptions(Utils.splitOptions(String.format("-B 1.0 -Z %s", df.format(computerMajorityClassPercentage()))));
+                train = Filter.useFilter(train, resample);
+                break;
+
+            case UNDERSAMPLING:
+                SpreadSubsample underSampling = new SpreadSubsample();
+                underSampling.setInputFormat(train);
+                underSampling.setOptions(Utils.splitOptions("-M 1.0"));
+                train = Filter.useFilter(train, underSampling);
+                break;
+
+            case SMOTE:
+                SMOTE smote = new SMOTE();
+                smote.setInputFormat(train);
+                train = Filter.useFilter(train, smote);
+                break;
         }
     }
 
     private double computerMajorityClassPercentage() {
         int buggyClasses = 0;
         Instances dataset = new Instances(train);
-        dataset.addAll(train);
 
         for (Instance recordDataset: dataset) {
             String buggy = recordDataset.stringValue(recordDataset.numAttributes()-1);
@@ -69,7 +73,7 @@ public class FilterDB {
                 buggyClasses++;
         }
 
-        double percentage = (100 * 2 * buggyClasses/dataset.size());
+        double percentage = (100 * buggyClasses/dataset.size());
         if (percentage >= 50)
             return percentage;
         else

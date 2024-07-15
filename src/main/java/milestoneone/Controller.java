@@ -76,7 +76,7 @@ public class Controller {
         List<Instance> instances = null;
         Map<String, List<Integer>> mapInst = new HashMap<>();
         // Inizializza il controller con il nome del progetto
-        String projName = Parameters.PROJECT2;
+        String projName = Parameters.PROJECT1;
         Controller controller = new Controller(projName);
         controller.setProject();
         String output = String.format("Dataset Creation: %s%n", projName);
