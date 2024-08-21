@@ -144,12 +144,13 @@ public class RetrieveTicketID {
             if (!t.withoutAv()){
                 if(!t.getOv().getName().contains(t.getFv().getName())){
                 avSum += t.getAv().getNumRel();
-                ovSum += t.getAv().getNumRel();
-                fvSum += t.getAv().getNumRel();
+                ovSum += t.getOv().getNumRel();
+                fvSum += t.getFv().getNumRel();
                 p= (fvSum-avSum)/ (fvSum-ovSum);}
             }
             else t.setAvWithProp(p,allVersion);
         }
+        
     }
 
 
